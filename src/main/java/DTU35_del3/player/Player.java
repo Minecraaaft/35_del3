@@ -5,7 +5,6 @@ public class Player {
     // Attributes
     private String name;
     private static int playerNumber;
-    private Balance balance = new Balance();
     private int fieldPos;
     private boolean hasWon;
 

@@ -1,4 +1,4 @@
-package 35_del3;
+package DTU35_del3;
 
 /**
  * Hello world!

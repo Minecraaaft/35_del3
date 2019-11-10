@@ -26,23 +26,22 @@ public class Board {
         Streets[15] = new Street("Strandpromenaden", "blue",-5, 15);
     }
 
-    public String getStreetName(int StreetNumber) {
-        String name = Streets[StreetNumber].getName();
-        return name;
+    public String getStreetName(int streetNumber) {
+        return Streets[streetNumber].getName();
     }
 
-    public int getStreetNumber(String StreetName) {
-        int StreetNumber = 404;
+    public int getStreetNumber(String streetName) {
+        int streetNumber = 404;
         for (Street a: Streets) {
-            if (StreetName == a.getName()) {
-                StreetNumber = a.getStreetNumber();
+            if (streetName.equals(a.getName())) {
+                streetNumber = a.getStreetNumber();
             }
         }
-        return StreetNumber;
+        return streetNumber;
     }
 
-//    public String getStreetMessage(int StreetNumber) {
-//        String message = Streets[StreetNumber].getMessage();
+//    public String getStreetMessage(int streetNumber) {
+//        String message = Streets[streetNumber].getMessage();
 //        return message;
 //    }
 
@@ -56,15 +55,14 @@ public class Board {
 //        return message;
 //    }
 
-    public int getStreetCashPrice(int StreetNumber) {
-        int cash = Streets[StreetNumber].getCashPrice();
-        return cash;
+    public int getStreetCashPrice(int streetNumber) {
+        return Streets[streetNumber].getCashPrice();
     }
 
-    public int getStreetCashPrice(String StreetName) {
+    public int getStreetCashPrice(String streetName) {
         int cash = 404;
         for (Street a: Streets) {
-            if (StreetName == a.getName()) {
+            if (streetName.equals(a.getName())) {
                 cash = a.getCashPrice();
             }
         }

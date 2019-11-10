@@ -4,19 +4,19 @@ public class Street {
     private String name;
 //    private String message;
     private int cashPrice;
-    private int StreetNumber;
-    private String StreetColor;
+    private int streetNumber;
+    private String streetColor;
 
-    public Street(String name,String StreetColor, int cashPrice, int StreetNumber) {
+    public Street(String name,String streetColor, int cashPrice, int streetNumber) {
         this.name = name;
 //        this.message = message;
         this.cashPrice = cashPrice;
-        this.StreetNumber = StreetNumber;
-        this.StreetColor = StreetColor;
+        this.streetNumber = streetNumber;
+        this.streetColor = streetColor;
     }
 
     public String getStreetColor() {
-        return StreetColor;
+        return streetColor;
     }
 
     public String getName() {
@@ -32,16 +32,15 @@ public class Street {
 //    }
 
     public int getStreetNumber() {
-        return StreetNumber;
+        return streetNumber;
     }
 
-    @Override
-    public String toString() {
+    public java.lang.String toString() {
         return "Street{" +
                 "name='" + name + '\'' +
                 ", cashPrice=" + cashPrice +
-                ", StreetNumber=" + StreetNumber +
-                ", StreetColor='" + StreetColor + '\'' +
+                ", streetNumber=" + streetNumber +
+                ", streetColor='" + streetColor + '\'' +
                 '}';
     }
 }

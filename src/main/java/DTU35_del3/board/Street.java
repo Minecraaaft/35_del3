@@ -34,4 +34,14 @@ public class Street {
     public int getStreetNumber() {
         return StreetNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Street{" +
+                "name='" + name + '\'' +
+                ", cashPrice=" + cashPrice +
+                ", StreetNumber=" + StreetNumber +
+                ", StreetColor='" + StreetColor + '\'' +
+                '}';
+    }
 }

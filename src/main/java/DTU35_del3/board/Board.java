@@ -1,8 +1,10 @@
 package DTU35_del3.board;
 
+import java.util.Arrays;
+
 public class Board {
 //    private Message message;
-    private Street[] Streets = new Street[15];
+    private Street[] Streets = new Street[16];
     public Board() {
 //        message = new Message(language);
 
@@ -69,5 +71,10 @@ public class Board {
         return cash;
     }
 
-
+    @Override
+    public String toString() {
+        return "Board{" +
+                "Streets=" + Arrays.toString(Streets) +
+                '}';
+    }
 }

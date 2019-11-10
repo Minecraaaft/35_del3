@@ -5,12 +5,18 @@ public class Street {
 //    private String message;
     private int cashPrice;
     private int StreetNumber;
+    private String StreetColor;
 
-    public Street(String name, int cashPrice, int StreetNumber) {
+    public Street(String name,String StreetColor, int cashPrice, int StreetNumber) {
         this.name = name;
 //        this.message = message;
         this.cashPrice = cashPrice;
         this.StreetNumber = StreetNumber;
+        this.StreetColor = StreetColor;
+    }
+
+    public String getStreetColor() {
+        return StreetColor;
     }
 
     public String getName() {

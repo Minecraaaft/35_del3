@@ -1,5 +1,6 @@
-package DTU35_del3.diceCup;
+package test;
 
+import DTU35_del3.diceCup.DiceCup;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

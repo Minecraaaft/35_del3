@@ -1,16 +1,16 @@
 package DTU35_del3.board;
 
-public class Square {
+public class Street {
     private String name;
     private String message;
     private int cashPrize;
-    private int SquareNumber;
+    private int StreetNumber;
 
-    public Square(String name, String message, int cashPrize, int SquareNumber) {
+    public Street(String name, String message, int cashPrize, int StreetNumber) {
         this.name = name;
         this.message = message;
         this.cashPrize = cashPrize;
-        this.SquareNumber = SquareNumber;
+        this.StreetNumber = StreetNumber;
     }
 
     public String getName() {
@@ -25,7 +25,7 @@ public class Square {
         return message;
     }
 
-    public int getSquareNumber() {
-        return SquareNumber;
+    public int getStreetNumber() {
+        return StreetNumber;
     }
 }

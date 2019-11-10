@@ -14,7 +14,7 @@ public class MonopolyGame {
     private Player player4 = new Player();
 
 
-    public void johansmetode() {
+    public int[] johansmetode() {
         //Creates a 20 long array with random numbers from 1 to 20. called "chanceArr"
         int[] chanceArr = new int[20];
         Random ran = new Random();
@@ -35,5 +35,6 @@ public class MonopolyGame {
             }
             inArray = false;
         }
-    };
+        return chanceArr;
+    }
 }

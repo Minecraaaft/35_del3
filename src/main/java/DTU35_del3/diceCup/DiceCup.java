@@ -6,7 +6,6 @@ public class DiceCup {
     private int[] faceValueArray = new int[2];
 
     private Die firstDie = new Die(6);
-    private Die secondDie = new Die(6);
 
     //Constructor
     public DiceCup() {
@@ -15,9 +14,8 @@ public class DiceCup {
     //rollDice method
     public int rollDice() {
         faceValueArray[0] = firstDie.roll();
-        faceValueArray[1] = secondDie.roll();
 
-        faceValueSum = faceValueArray[0] + faceValueArray[1];
+        faceValueSum = faceValueArray[0];
         return faceValueSum;
     }
 

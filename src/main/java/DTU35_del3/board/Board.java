@@ -4,26 +4,32 @@ import java.util.Arrays;
 
 public class Board {
 //    private Message message;
-    private Street[] Streets = new Street[16];
+    private Street[] Streets = new Street[22];
     public Board() {
-//        message = new Message(language);
+//    message = new Message(language);
 
-        Streets[0] = new Street("Burgerbaren", "brown", -1, 0,-1);
-        Streets[1] = new Street("Pizzeriaet", "brown",-1, 1,-1);
-        Streets[2] = new Street("Slikbutikken", "lightblue",-1, 2,-1);
-        Streets[3] = new Street("Iskiosken", "lightblue",-1, 3,-1);
-        Streets[4] = new Street("Museet", "pink",-2, 4,-2);
-        Streets[5] = new Street("Biblioteket", "pink",-2, 5,-2);
-        Streets[6] = new Street("Skaterparken","orange",-2, 6,-2);
-        Streets[7] = new Street("Swimmingpoolen", "orange",-2, 7,-2);
-        Streets[8] = new Street("Spillehallen","red",-3, 8,-3);
-        Streets[9] = new Street("Biografen", "red", -3, 9,-3);
-        Streets[10] = new Street("Legetøjsbutikken", "yellow",-3, 10,-3);
-        Streets[11] = new Street("Dyrehandlen", "yellow",-3, 11, -3);
-        Streets[12] = new Street("Bowlinghallen", "green",-4, 12,-4);
-        Streets[13] = new Street("Zoo", "green",-4, 13,-4);
-        Streets[14] = new Street("Vandlandet", "blue",-5, 14,-5);
-        Streets[15] = new Street("Strandpromenaden", "blue",-5, 15,-5);
+        Streets[0] = new Street("Rødovrevej", "blue", -60, 0,-60);
+        Streets[1] = new Street("Hvidovrevej", "blue",-60, 1,-60);
+        Streets[2] = new Street("Roskildevej", "pink",-100, 2,-100);
+        Streets[3] = new Street("Valby Langgade", "pink",-100, 3,-100);
+        Streets[4] = new Street("Allégade", "pink",-120, 4,-120);
+        Streets[5] = new Street("Frederiksberg Allé", "green",-140, 5,-140);
+        Streets[6] = new Street("Bülowsvej","green",-140, 6,-140);
+        Streets[7] = new Street("Gammel Kongevej", "green",-140, 7,-140);
+        Streets[8] = new Street("Bernstorffsvej","gray",-180, 8,-180);
+        Streets[9] = new Street("Hellerupvej", "gray", -180, 9,-180);
+        Streets[10] = new Street("Strandvejen", "gray",-180, 10,-180);
+        Streets[11] = new Street("Trianglen", "red",-220, 11, -220);
+        Streets[12] = new Street("Østerbrogade", "red",-220, 12,-220);
+        Streets[13] = new Street("Grønningen", "red",-240, 13,-240);
+        Streets[14] = new Street("Bredgade", "hvid",-260, 14,-260);
+        Streets[15] = new Street("Kgs. Nytorv", "hvid",-260, 15,-260);
+        Streets[16] = new Street("Østergade", "hvid",-280, 16,-280);
+        Streets[17] = new Street("Amagertorv", "gul",-300, 17,-300);
+        Streets[18] = new Street("Vimmelskaftet", "gul",-300, 18,-300);
+        Streets[19] = new Street("Nygade", "gul",-320, 19,-320);
+        Streets[20] = new Street("Frederiksberggade", "lilla",-350, 20,-350);
+        Streets[21] = new Street("Rådhuspladsen", "lilla",-400, 21,-400);
     }
 
     public String getStreetName(int streetNumber) {

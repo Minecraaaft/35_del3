@@ -11,7 +11,6 @@ public class Player {
     public Player() {
         this.name = "Player " + ++playerNumber;
         this.fieldPos = 0;
-
         this.hasWon = false;
     }
 

@@ -1,8 +1,8 @@
 package DTU35_del3.player;
 
 public class Balance {
-    String owner;
-    int balance;
+    private String owner;
+    private int balance;
 
     public Balance(String owner, int balance) {
         this.owner = owner;
@@ -22,10 +22,10 @@ public class Balance {
     }
 
     public void addToBalance(int amount) {
-        this.balance = this.balance + amount;
+        this.balance += amount;
     }
 
     public void removeFromBalance(int amount) {
-        this.balance = this.balance - amount;
+        this.balance -= amount;
     }
 }

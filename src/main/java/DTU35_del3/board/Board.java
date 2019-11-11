@@ -8,22 +8,22 @@ public class Board {
     public Board() {
 //        message = new Message(language);
 
-        Streets[0] = new Street("Burgerbaren", "brown", -1, 0);
-        Streets[1] = new Street("Pizzeriaet", "brown",-1, 1);
-        Streets[2] = new Street("Slikbutikken", "lightblue",-1, 2);
-        Streets[3] = new Street("Iskiosken", "lightblue",-1, 3);
-        Streets[4] = new Street("Museet", "pink",-2, 4);
-        Streets[5] = new Street("Biblioteket", "pink",-2, 5);
-        Streets[6] = new Street("Skaterparken","orange",-2, 6);
-        Streets[7] = new Street("Swimmingpoolen", "orange",-2, 7);
-        Streets[8] = new Street("Spillehallen","red",-3, 8);
-        Streets[9] = new Street("Biografen", "red", -3, 9);
-        Streets[10] = new Street("Legetøjsbutikken", "yellow",-3, 10);
-        Streets[11] = new Street("Dyrehandlen", "yellow",-3, 11);
-        Streets[12] = new Street("Bowlinghallen", "green",-4, 12);
-        Streets[13] = new Street("Zoo", "green",-4, 13);
-        Streets[14] = new Street("Vandlandet", "blue",-5, 14);
-        Streets[15] = new Street("Strandpromenaden", "blue",-5, 15);
+        Streets[0] = new Street("Burgerbaren", "brown", -1, 0,-1);
+        Streets[1] = new Street("Pizzeriaet", "brown",-1, 1,-1);
+        Streets[2] = new Street("Slikbutikken", "lightblue",-1, 2,-1);
+        Streets[3] = new Street("Iskiosken", "lightblue",-1, 3,-1);
+        Streets[4] = new Street("Museet", "pink",-2, 4,-2);
+        Streets[5] = new Street("Biblioteket", "pink",-2, 5,-2);
+        Streets[6] = new Street("Skaterparken","orange",-2, 6,-2);
+        Streets[7] = new Street("Swimmingpoolen", "orange",-2, 7,-2);
+        Streets[8] = new Street("Spillehallen","red",-3, 8,-3);
+        Streets[9] = new Street("Biografen", "red", -3, 9,-3);
+        Streets[10] = new Street("Legetøjsbutikken", "yellow",-3, 10,-3);
+        Streets[11] = new Street("Dyrehandlen", "yellow",-3, 11, -3);
+        Streets[12] = new Street("Bowlinghallen", "green",-4, 12,-4);
+        Streets[13] = new Street("Zoo", "green",-4, 13,-4);
+        Streets[14] = new Street("Vandlandet", "blue",-5, 14,-5);
+        Streets[15] = new Street("Strandpromenaden", "blue",-5, 15,-5);
     }
 
     public String getStreetName(int streetNumber) {
@@ -60,14 +60,14 @@ public class Board {
     }
 
     public int getStreetCashPrice(int streetNumber) {
-        return Streets[streetNumber].getCashPrice();
+        return Streets[streetNumber].getStreetPrice();
     }
 
     public int getStreetCashPrice(String streetName) {
         int cash = 404;
         for (Street a: Streets) {
             if (streetName.equals(a.getName())) {
-                cash = a.getCashPrice();
+                cash = a.getStreetPrice();
             }
         }
         return cash;

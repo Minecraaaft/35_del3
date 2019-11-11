@@ -3,16 +3,18 @@ package DTU35_del3.board;
 public class Street {
     private String name;
 //    private String message;
-    private int cashPrice;
+    private int streetPrice;
     private int streetNumber;
     private String streetColor;
+    private int streetRent;
 
-    public Street(String name,String streetColor, int cashPrice, int streetNumber) {
+    public Street(String name, String streetColor, int streetPrice, int streetNumber, int streetRent) {
         this.name = name;
 //        this.message = message;
-        this.cashPrice = cashPrice;
+        this.streetPrice = streetPrice;
         this.streetNumber = streetNumber;
         this.streetColor = streetColor;
+        this.streetRent = streetRent;
     }
 
     public String getStreetColor() {
@@ -23,8 +25,8 @@ public class Street {
         return name;
     }
 
-    public int getCashPrice() {
-        return cashPrice;
+    public int getStreetPrice() {
+        return streetPrice;
     }
 
 //    public String getMessage() {
@@ -38,7 +40,7 @@ public class Street {
     public java.lang.String toString() {
         return "Street{" +
                 "name='" + name + '\'' +
-                ", cashPrice=" + cashPrice +
+                ", streetPrice=" + streetPrice +
                 ", streetNumber=" + streetNumber +
                 ", streetColor='" + streetColor + '\'' +
                 '}';

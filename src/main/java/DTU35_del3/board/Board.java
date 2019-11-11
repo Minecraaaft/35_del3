@@ -55,6 +55,10 @@ public class Board {
 //        return message;
 //    }
 
+    public String getStreetColor(int streetNumber){
+        return Streets[streetNumber].getStreetColor();
+    }
+
     public int getStreetCashPrice(int streetNumber) {
         return Streets[streetNumber].getCashPrice();
     }

@@ -22,7 +22,17 @@ public class MonopolyGame {
 
     private GUI_Field[] fields = {
             new GUI_Start("START", "", "",  Color.RED, Color.WHITE),
-            new GUI_Brewery("35_del3/src/main/java/DTU35_del3/Pictures/Burger_final.jpg", "Burgerbaren", "1M","","", Color.RED, Color.BLACK)
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","1", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Pizza.jpg", "Pizzariaet", "1M","","1", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Slik.jpg", "Slikbutikken", "1M","","1", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Is.jpg", "Isbutikken", "1M","","1", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Museum.jpg", "Museet", "2M","","2", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Bog.jpg", "Biblioteket", "2M","","2", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
 
 
     };

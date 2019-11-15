@@ -15,10 +15,7 @@ import java.util.Random;
 public class GUIController {
 
 
-    private Player player1 = new Player();
-    private Player player2 = new Player();
-    private Player player3 = new Player();
-    private Player player4 = new Player();
+
 
     private GUI_Field[] fields = {
             new GUI_Start("START", "", "",  Color.RED, Color.WHITE),
@@ -39,7 +36,7 @@ public class GUIController {
 
     private GUI gui = new GUI(fields);
 
-    public void Start() {}
+
 
     //makes an animation of player's piece moving
     public void movePlayer(String name, int from, int to){

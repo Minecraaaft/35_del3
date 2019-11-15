@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
-public class MonopolyGame {
+public class GUIController {
 
 
     private Player player1 = new Player();
@@ -40,6 +40,39 @@ public class MonopolyGame {
     private GUI gui = new GUI(fields);
 
     public void Start() {}
+
+    //makes an animation of player's piece moving
+    public void movePlayer(String name, int from, int to){
+    }
+
+    //updates all players balances
+    public void updateBalance() {
+
+    }
+
+    //shows the street is bought and by whom
+    public void buyStreet() {
+
+    }
+
+    //moves player to jail
+    public void moveToJail() {
+
+    }
+
+    public void displayChanceCard(String message) {
+
+    }
+
+    public void displayDie() {
+
+    }
+
+    public void showGUIMessage() {
+
+    }
+
+
 
     public int[] johansmetode() {
         //Creates a 20 long array with random numbers from 1 to 20. called "chanceArr"

@@ -2,7 +2,14 @@ package DTU35_del3.monopolyGame;
 
 import DTU35_del3.board.Board;
 import DTU35_del3.player.Player;
+import gui_fields.GUI_Brewery;
+import gui_fields.GUI_Field;
+import gui_fields.GUI_Start;
+import gui_fields.GUI_Street;
+import gui_main.GUI;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.Random;
 
 public class MonopolyGame {
@@ -13,6 +20,26 @@ public class MonopolyGame {
     private Player player3 = new Player();
     private Player player4 = new Player();
 
+    private GUI_Field[] fields = {
+            new GUI_Start("START", "", "",  Color.RED, Color.WHITE),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","1", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Pizza.jpg", "Pizzariaet", "1M","","1", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Slik.jpg", "Slikbutikken", "1M","","1", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Is.jpg", "Isbutikken", "1M","","1", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Museum.jpg", "Museet", "2M","","2", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Bog.jpg", "Biblioteket", "2M","","2", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+
+
+    };
+
+    private GUI gui = new GUI(fields);
+
+    public void Start() {}
 
     public int[] johansmetode() {
         //Creates a 20 long array with random numbers from 1 to 20. called "chanceArr"

@@ -2,10 +2,7 @@ package DTU35_del3.monopolyGame;
 
 import DTU35_del3.board.Board;
 import DTU35_del3.player.Player;
-import gui_fields.GUI_Brewery;
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Start;
-import gui_fields.GUI_Street;
+import gui_fields.*;
 import gui_main.GUI;
 
 import javax.swing.*;
@@ -13,8 +10,13 @@ import java.awt.*;
 import java.util.Random;
 
 public class GUIController {
-
-
+    private GameLogic gameLogic = new GameLogic();
+    private GUI_Player[] GUIplayers;
+    private GUI_Car[] cars = {  new GUI_Car(Color.green, Color.BLACK, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL),
+                                new GUI_Car(Color.red, Color.BLACK, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL),
+                                new GUI_Car(Color.CYAN, Color.BLACK, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL),
+                                new GUI_Car(Color.yellow, Color.BLACK, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL)
+    };
 
 
     private GUI_Field[] fields = {
@@ -31,11 +33,33 @@ public class GUIController {
             new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
             new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
 
-
     };
 
     private GUI gui = new GUI(fields);
 
+
+    public void Start() {
+        int players = gui.getUserInteger("How many players?", 2, 4);
+        int balance = 20;
+
+        if (players == 3) {
+            balance = 18;
+        } else if (players == 4) {
+            balance = 16;
+        }
+        String[] names = new String[players];
+        for (int i = 0; i < players; i++) {
+            names[i] = gui.getUserString("Player " + (i+1) + ", choose name please:");
+
+        }
+        GUIplayers = new GUI_Player[names.length];
+        for (int i = 0; i < players; i++) {
+            GUIplayers[i] = new GUI_Player(names[i], balance, cars[i]);
+            gui.addPlayer(GUIplayers[i]);
+        }
+
+
+    }
 
 
     //makes an animation of player's piece moving

@@ -56,12 +56,9 @@ public class GUIController {
         for (int i = 0; i < players; i++) {
             GUIplayers[i] = new GUI_Player(names[i], balance, cars[i]);
             gui.addPlayer(GUIplayers[i]);
+            fields[0].setCar(GUIplayers[i], true);
         }
 
-        fields[0].setCar(GUIplayers[0], true);
-        fields[0].setCar(GUIplayers[1], true);
-        fields[0].setCar(GUIplayers[2], true);
-        fields[0].setCar(GUIplayers[3], true);
 
 
     }

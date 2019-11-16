@@ -14,14 +14,16 @@ public class GameLogic {
     private Balance balance1, balance2, balance3, balance4;
     private DiceCup diceCup = new DiceCup();
     private Board board = new Board();
+    private GUIController guiController = new GUIController();
 
     public void Start() {
+        String[] names = guiController.startMenu();
 
-    }
-
-    public void namePlayers(String[] names) {
         for (int i = 0; i < names.length - 1; i++) {
             playerList[i].setName(names[i]);
         }
+
     }
+
+
 }

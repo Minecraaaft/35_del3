@@ -23,6 +23,8 @@ public class GameLogic {
             playerList[i].setName(names[i]);
         }
 
+        guiController.movePlayer(names[1], 1, 5);
+
     }
 
 

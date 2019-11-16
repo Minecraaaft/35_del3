@@ -98,6 +98,7 @@ public class GUIController {
 
 
     public void updateBalance(String name, int balance) {
+        //finds the player with that name
         GUI_Player choosenPlayer = null;
         for (GUI_Player p: GUIplayers) {
             if (p.getName().equals(name)){
@@ -110,15 +111,27 @@ public class GUIController {
 
     //shows the street is bought and by whom
     public void buyStreet(String name, int pos) {
-        streets[pos].setOwnableLabel(name);
+        //finds the player with that name
+        GUI_Player choosenPlayer = null;
+        for (GUI_Player p: GUIplayers) {
+            if (p.getName().equals(name)){
+                choosenPlayer = p;
+            }
+        }
+
+        int streetIndex = pos - 1;
+
+        streets[streetIndex].setBorder(choosenPlayer.getCar().getPrimaryColor());
     }
 
     //moves player to jail
     public void moveToJail(String name, int currentPos) {
+        //finds the player with that name
         GUI_Player choosenPlayer = null;
         for (GUI_Player p: GUIplayers) {
             if (p.getName().equals(name)){
-                choosenPlayer = p;            }
+                choosenPlayer = p;
+            }
         }
 
         fields[currentPos].setCar(choosenPlayer, false);
@@ -129,7 +142,8 @@ public class GUIController {
         gui.displayChanceCard(message);
     }
 
-    public void displayDie(int value) {
+    public void DiceMenu(int value, String name) {
+        gui.getUserButtonPressed("It's " + name + " turn.", "Roll dice");
         gui.setDie(value);
     }
 

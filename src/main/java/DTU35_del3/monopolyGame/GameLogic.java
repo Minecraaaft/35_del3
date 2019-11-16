@@ -6,11 +6,7 @@ import DTU35_del3.player.Balance;
 import DTU35_del3.player.Player;
 
 public class GameLogic {
-    private Player player1 = new Player();
-    private Player player2 = new Player();
-    private Player player3 = new Player();
-    private Player player4 = new Player();
-    private Player[] playerList= {player1, player2, player3, player4};
+    private Player[] playerList;
     private Balance balance1, balance2, balance3, balance4;
     private DiceCup diceCup = new DiceCup();
     private Board board = new Board();
@@ -19,28 +15,33 @@ public class GameLogic {
     public void Start() {
         String[] names = guiController.startMenu();
 
+        playerList = new Player[names.length];
         for (int i = 0; i < names.length; i++) {
+            playerList[i] = new Player();
             playerList[i].setName(names[i]);
         }
 
 
         while (true) {
-            turn(player1);
-            turn(player2);
+            for (Player p : playerList) {
+                turn(p);
+            }
         }
 
     }
 
     public void turn(Player player) {
         diceCup.rollDice();
-        guiController.displayDie(diceCup.getFaceValueSum());
+        guiController.DiceMenu(diceCup.getFaceValueSum(), player.getName());
         int currentPos = player.getFieldPos();
-        player.setFieldPos(player.getFieldPos() + diceCup.getFaceValueSum());
+        player.setFieldPos((player.getFieldPos() + diceCup.getFaceValueSum()) % 24);
         guiController.movePlayer(player.getName(), currentPos, player.getFieldPos());
+        System.out.println(player.getFieldPos());
+        landOn(player);
     }
 
     public void landOn(Player player) {
-        switch (player1.getFieldPos()) {
+        switch (player.getFieldPos()) {
             case 1:
             case 2:
             case 4:
@@ -81,11 +82,14 @@ public class GameLogic {
                 if (!player.getHasLost()) {
                     player.addToBalance(streetPrice);
                 }
-
+                break;
             } else {
                 player.removeFromBalance(streetPrice);
+                guiController.updateBalance(player.getName(), player.getBalance());
                 board.setOwner(player.getName(), player.getFieldPos());
                 guiController.buyStreet(player.getName(), player.getFieldPos());
+                System.out.println("købt");
+                break;
             }
         }
 

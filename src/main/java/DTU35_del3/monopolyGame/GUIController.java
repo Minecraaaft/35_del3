@@ -27,11 +27,16 @@ public class GUIController {
             new GUI_Brewery("src/main/java/Pictures/Is.jpg", "Isbutikken", "1M","","1", Color.WHITE, Color.BLACK),
             new GUI_Brewery("src/main/java/Pictures/Museum.jpg", "Museet", "2M","","2", Color.WHITE, Color.BLACK),
             new GUI_Brewery("src/main/java/Pictures/Bog.jpg", "Biblioteket", "2M","","2", Color.WHITE, Color.BLACK),
-            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
-            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
-            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
-            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
-            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Skater.jpg", "Skaterparken", "2M","","2", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Svømmer.jpg", "Svømmehallen", "2M","","2", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Arcade.jpg", "Spillehalle", "3M","","3", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Biograf.jpg", "Biografen", "3M","","3", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Legetøj.jpg", "Legetøjsbutiken", "3M","","3", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Dyrehandel.jpg", "Dyrehandlen", "3M","","3", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Bowling.jpg", "Bowlinghallen", "4M","","4", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Zoo.jpg", "Zoo", "4M","","4", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Vandland.jpg", "Vandlandet", "4M","","4", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Strand.jpg", "Strandpromenaden", "4M","","4", Color.WHITE, Color.BLACK),
 
     };
 

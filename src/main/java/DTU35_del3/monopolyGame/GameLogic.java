@@ -6,14 +6,22 @@ import DTU35_del3.player.Balance;
 import DTU35_del3.player.Player;
 
 public class GameLogic {
-    private GUIController guiController= new GUIController();
     private Player player1 = new Player();
     private Player player2 = new Player();
     private Player player3 = new Player();
     private Player player4 = new Player();
+    private Player[] playerList= {player1, player2, player3, player4};
     private Balance balance1, balance2, balance3, balance4;
     private DiceCup diceCup = new DiceCup();
     private Board board = new Board();
 
-    public void Start() {}
+    public void Start() {
+
+    }
+
+    public void namePlayers(String[] names) {
+        for (int i = 0; i < names.length - 1; i++) {
+            playerList[i].setName(names[i]);
+        }
+    }
 }

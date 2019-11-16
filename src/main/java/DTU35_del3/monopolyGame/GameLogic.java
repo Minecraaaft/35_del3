@@ -33,7 +33,7 @@ public class GameLogic {
 
     public void turn(Player player) {
         diceCup.rollDice();
-        guiController.showDie(diceCup.getFaceValueSum());
+        guiController.displayDie(diceCup.getFaceValueSum());
         int currentPos = player.getFieldPos();
         player.setFieldPos(player.getFieldPos() + diceCup.getFaceValueSum());
         guiController.movePlayer(player.getName(), currentPos, player.getFieldPos());
@@ -85,7 +85,7 @@ public class GameLogic {
             } else {
                 player.removeFromBalance(streetPrice);
                 board.setOwner(player.getName(), player.getFieldPos());
-                guiController.buyStreet();
+                guiController.buyStreet(player.getName(), player.getFieldPos());
             }
         }
 
@@ -97,6 +97,7 @@ public class GameLogic {
             //Ryk frem til start. Modtag 2M
             case 1:
                 guiController.movePlayer(player.getName(), player.getFieldPos(), 0);
+                guiController.displayChanceCard("Ryk frem til start. Modtag 2M");
                 break;
 
 

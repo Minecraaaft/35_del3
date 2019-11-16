@@ -58,12 +58,17 @@ public class GUIController {
             gui.addPlayer(GUIplayers[i]);
         }
 
+        fields[0].setCar(GUIplayers[0], true);
+        fields[0].setCar(GUIplayers[1], true);
+        fields[0].setCar(GUIplayers[2], true);
+        fields[0].setCar(GUIplayers[3], true);
+
 
     }
 
 
     //makes an animation of player's piece moving
-    public void movePlayer(String name, int from, int to){
+    public void movePlayer(String name, int from, int to) {
     }
 
     //updates all players balances

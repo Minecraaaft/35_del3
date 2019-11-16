@@ -50,7 +50,7 @@ public class GUIController {
     private GUI gui = new GUI(fields);
 
 
-    public void Start() {
+    public String[] startMenu() {
         int players = gui.getUserInteger("How many players?", 2, 4);
         int balance = 20;
 
@@ -68,14 +68,27 @@ public class GUIController {
         for (int i = 0; i < players; i++) {
             GUIplayers[i] = new GUI_Player(names[i], balance, cars[i]);
             gui.addPlayer(GUIplayers[i]);
+            fields[0].setCar(GUIplayers[i], true);
         }
 
+        return names;
 
     }
 
 
     //makes an animation of player's piece moving
-    public void movePlayer(String name, int from, int to){
+    public void movePlayer(String name, int from, int to) {
+        GUI_Player choosenPlayer = null;
+        for (GUI_Player p: GUIplayers) {
+            if (p.getName().equals(name)){
+               choosenPlayer = p;            }
+        }
+        for (int i = from; i < to; i++) {
+            sleep(300);
+            fields[i-1].setCar(choosenPlayer,false);
+            fields[i].setCar(choosenPlayer, true);
+
+        }
     }
 
     //updates all players balances
@@ -105,6 +118,10 @@ public class GUIController {
 
     }
 
+    public void showDie(int value) {
+        gui.setDie(value);
+    }
+
 
 
     public int[] johansmetode() {
@@ -130,4 +147,12 @@ public class GUIController {
         }
         return chanceArr;
     }
+    public void sleep(int time) {
+        try {
+            Thread.sleep(time);
+        } catch (Exception e) {
+
+        }
+    }
+
 }

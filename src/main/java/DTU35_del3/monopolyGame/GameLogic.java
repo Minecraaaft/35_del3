@@ -23,7 +23,10 @@ public class GameLogic {
             playerList[i].setName(names[i]);
         }
 
-        guiController.movePlayer(names[1], 1, 5);
+        while (true) {
+            turn(player1);
+            turn(player2);
+        }
 
     }
 

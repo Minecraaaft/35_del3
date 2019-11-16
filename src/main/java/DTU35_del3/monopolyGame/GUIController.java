@@ -84,8 +84,8 @@ public class GUIController {
         }
         for (int i = from; i < to; i++) {
             sleep(300);
-            fields[i-1].setCar(choosenPlayer,false);
-            fields[i].setCar(choosenPlayer, true);
+            fields[i].setCar(choosenPlayer,false);
+            fields[i+1].setCar(choosenPlayer, true);
 
         }
     }

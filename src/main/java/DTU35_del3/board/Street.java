@@ -7,6 +7,7 @@ public class Street {
     private int streetNumber;
     private String streetColor;
     private int streetRent;
+    private String ownedBy = "";
 
     public Street(String name, String streetColor, int streetPrice, int streetNumber, int streetRent) {
         this.name = name;
@@ -29,7 +30,15 @@ public class Street {
         return streetPrice;
     }
 
-//    public String getMessage() {
+    public void setOwned(String ownedBy) {
+        this.ownedBy = ownedBy;
+    }
+
+    public String getOwned() {
+        return this.ownedBy;
+    }
+
+    //    public String getMessage() {
 //        return message;
 //    }
 

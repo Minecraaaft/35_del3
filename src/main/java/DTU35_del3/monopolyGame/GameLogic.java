@@ -23,6 +23,8 @@ public class GameLogic {
             playerList[i].setName(names[i]);
         }
 
+        for (int i = 0;)
+
         while (true) {
             turn(player1);
             turn(player2);
@@ -36,6 +38,22 @@ public class GameLogic {
         int currentPos = player.getFieldPos();
         player.setFieldPos(player.getFieldPos() + diceCup.getFaceValueSum());
         guiController.movePlayer(player.getName(), currentPos, player.getFieldPos());
+    }
+
+    public void landOn() {
+        switch (player1.getFieldPos()) {
+            case 1:
+
+        }
+    }
+
+    public void landOnStreet(Player player) {
+        for (Player p : playerList) {
+            if (board.getOwned(player.getFieldPos()) == p.getName() && p.getName() != player.getName()) {
+
+            }
+        }
+
     }
 
 

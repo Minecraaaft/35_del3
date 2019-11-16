@@ -27,5 +27,13 @@ public class GameLogic {
 
     }
 
+    public void turn(Player player) {
+        diceCup.rollDice();
+        guiController.showDie(diceCup.getFaceValueSum());
+        int currentPos = player.getFieldPos();
+        player.setFieldPos(player.getFieldPos() + diceCup.getFaceValueSum());
+        guiController.movePlayer(player.getName(), currentPos, player.getFieldPos());
+    }
+
 
 }

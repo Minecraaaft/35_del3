@@ -31,6 +31,18 @@ public class GUIController {
             new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
             new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
             new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Start("START", "", "",  Color.RED, Color.WHITE),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","1", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Pizza.jpg", "Pizzariaet", "1M","","1", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Slik.jpg", "Slikbutikken", "1M","","1", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Is.jpg", "Isbutikken", "1M","","1", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Museum.jpg", "Museet", "2M","","2", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Bog.jpg", "Biblioteket", "2M","","2", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M","","", Color.WHITE, Color.BLACK),
 
     };
 
@@ -103,6 +115,10 @@ public class GUIController {
 
     public void showGUIMessage() {
 
+    }
+
+    public void showDie(int value) {
+        gui.setDie(value);
     }
 
 

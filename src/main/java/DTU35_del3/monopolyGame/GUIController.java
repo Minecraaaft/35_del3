@@ -71,10 +71,10 @@ public class GUIController {
                choosenPlayer = p;            }
         }
         for (int i = from; i < to; i++) {
+            sleep(300);
             fields[i-1].setCar(choosenPlayer,false);
-            sleep(300);
             fields[i].setCar(choosenPlayer, true);
-            sleep(300);
+
         }
     }
 

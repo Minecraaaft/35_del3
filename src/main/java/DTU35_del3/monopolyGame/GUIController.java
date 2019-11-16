@@ -72,7 +72,9 @@ public class GUIController {
         }
         for (int i = from; i < to; i++) {
             fields[i-1].setCar(choosenPlayer,false);
+            sleep(300);
             fields[i].setCar(choosenPlayer, true);
+            sleep(300);
         }
     }
 
@@ -128,4 +130,12 @@ public class GUIController {
         }
         return chanceArr;
     }
+    public void sleep(int time) {
+        try {
+            Thread.sleep(time);
+        } catch (Exception e) {
+
+        }
+    }
+
 }

@@ -51,6 +51,14 @@ public class Board {
         return ownedBy;
     }
 
+    public void setOwner(String name, int pos) {
+        for (Street s : Streets) {
+            if (pos == s.getStreetNumber()) {
+                s.setOwned(name);
+            }
+        }
+    }
+
 //    public String getStreetMessage(int streetNumber) {
 //        String message = Streets[streetNumber].getMessage();
 //        return message;

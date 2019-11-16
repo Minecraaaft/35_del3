@@ -1,16 +1,9 @@
 package DTU35_del3.player;
 
 public class Balance {
-    private String owner;
-    private int balance;
+    private int balance = 20;
 
-    public Balance(String owner, int balance) {
-        this.owner = owner;
-        this.balance = balance;
-    }
-
-    public String getOwner() {
-        return owner;
+    public Balance() {
     }
 
     public int getBalance() {

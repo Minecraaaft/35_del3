@@ -23,7 +23,6 @@ public class GameLogic {
             playerList[i].setName(names[i]);
         }
 
-        for (int i = 0;)
 
         while (true) {
             turn(player1);
@@ -40,19 +39,63 @@ public class GameLogic {
         guiController.movePlayer(player.getName(), currentPos, player.getFieldPos());
     }
 
-    public void landOn() {
+    public void landOn(Player player) {
         switch (player1.getFieldPos()) {
             case 1:
+            case 2:
+            case 4:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 11:
+            case 13:
+            case 14:
+            case 16:
+            case 17:
+            case 19:
+            case 20:
+            case 22:
+            case 23:
+                landOnStreet(player);
+                break;
+            case 3:
+            case 9:
+            case 15:
+            case 21:
+                landOnChance(player);
+                break;
+            case 18:
+                landOnJail(player);
+                break;
 
         }
     }
 
     public void landOnStreet(Player player) {
+        int streetPrice = board.getStreetCashPrice(player.getFieldPos());
         for (Player p : playerList) {
             if (board.getOwned(player.getFieldPos()) == p.getName() && p.getName() != player.getName()) {
+                player.removeFromBalance(streetPrice);
 
+                if (!player.getHasLost()) {
+                    player.addToBalance(streetPrice);
+                }
+
+            } else {
+                player.removeFromBalance(streetPrice);
+                board.setOwner(player.getName(), player.getFieldPos());
+                guiController.buyStreet();
             }
         }
+
+    }
+
+    public void landOnChance(Player player) {
+
+    }
+
+    public void landOnJail(Player player) {
 
     }
 

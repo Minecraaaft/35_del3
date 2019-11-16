@@ -92,6 +92,15 @@ public class GameLogic {
     }
 
     public void landOnChance(Player player) {
+        int cardNumber = 3;
+        switch (cardNumber) {
+            //Ryk frem til start. Modtag 2M
+            case 1:
+                guiController.movePlayer(player.getName(), player.getFieldPos(), 0);
+                break;
+
+
+        }
 
     }
 

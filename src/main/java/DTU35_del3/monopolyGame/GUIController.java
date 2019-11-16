@@ -40,6 +40,10 @@ public class GUIController {
 
     //makes an animation of player's piece moving
     public void movePlayer(String name, int from, int to){
+        for (int i = from; i < to; i++) {
+            fields[from-1].setCar(GUIplayer[2],false);
+
+        }
     }
 
     //updates all players balances

@@ -71,7 +71,8 @@ public class GUIController {
                choosenPlayer = p;            }
         }
         for (int i = from; i < to; i++) {
-            fields[from-1].setCar(choosenPlayer,false);
+            fields[i-1].setCar(choosenPlayer,false);
+            fields[i].setCar(choosenPlayer, true);
         }
     }
 

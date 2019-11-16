@@ -10,7 +10,6 @@ import java.awt.*;
 import java.util.Random;
 
 public class GUIController {
-    private GameLogic gameLogic = new GameLogic();
     private GUI_Player[] GUIplayers;
     private GUI_Car[] cars = {  new GUI_Car(Color.green, Color.BLACK, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL),
                                 new GUI_Car(Color.red, Color.BLACK, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL),

@@ -19,7 +19,7 @@ public class GameLogic {
     public void Start() {
         String[] names = guiController.startMenu();
 
-        for (int i = 0; i < names.length - 1; i++) {
+        for (int i = 0; i < names.length; i++) {
             playerList[i].setName(names[i]);
         }
 

@@ -66,6 +66,14 @@ public class GUIController {
 
     //makes an animation of player's piece moving
     public void movePlayer(String name, int from, int to) {
+        GUI_Player choosenPlayer = null;
+        for (GUI_Player p: GUIplayers) {
+            if (p.getName().equals(name)){
+               choosenPlayer = p;            }
+        }
+        for (int i = from; i < to; i++) {
+            fields[from-1].setCar(choosenPlayer,false);
+        }
     }
 
     //updates all players balances

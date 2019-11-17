@@ -54,18 +54,23 @@ public class GUIController {
 
     public String[] startMenu() {
         int players = gui.getUserInteger("How many players?", 2, 4);
-        int balance = 20;
 
-        if (players == 3) {
+        int balance=0;
+        if (players == 2) {
+            balance = 20;
+        } else if (players == 3) {
             balance = 18;
         } else if (players == 4) {
             balance = 16;
         }
+
+        //requests names and stores them in an array which then is returned at end of method
         String[] names = new String[players];
         for (int i = 0; i < players; i++) {
             names[i] = gui.getUserString("Player " + (i+1) + ", choose name please:");
-
         }
+
+        //players are added to the board
         GUIplayers = new GUI_Player[names.length];
         for (int i = 0; i < players; i++) {
             GUIplayers[i] = new GUI_Player(names[i], balance, cars[i]);

@@ -83,15 +83,16 @@ public class GameLogic {
     }
 
     public void landOnStreet(Player player) {
+        int streetRent = board.getStreetRent(player.getFieldPos());
         int streetPrice = board.getStreetCashPrice(player.getFieldPos());
         for (Player p : playerList) {
             System.out.println(board.getOwned(player.getFieldPos()));
             System.out.println(p.getName());
             if (board.getOwned(player.getFieldPos()) == p.getName() && p.getName() != player.getName()) {
-                player.removeFromBalance(streetPrice);
+                player.removeFromBalance(streetRent);
 
                 if (!player.getHasLost()) {
-                    p.addToBalance(streetPrice);
+                    p.addToBalance(streetRent);
                 }
                 guiController.updateBalance(player.getName(), player.getBalance());
                 guiController.updateBalance(p.getName(), p.getBalance());
@@ -104,6 +105,7 @@ public class GameLogic {
             guiController.updateBalance(player.getName(), player.getBalance());
             board.setOwner(player.getName(), player.getFieldPos());
             guiController.buyStreet(player.getName(), player.getFieldPos());
+            board.checkForPairs();
             System.out.println("købt");
         }
 

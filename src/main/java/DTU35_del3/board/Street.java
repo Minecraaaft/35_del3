@@ -5,6 +5,7 @@ public class Street {
 //    private String message;
     private int streetPrice;
     private int streetNumber;
+    private boolean paired;
     private String streetColor;
     private int streetRent;
     private String ownedBy = "";
@@ -24,6 +25,19 @@ public class Street {
 
     public String getName() {
         return name;
+    }
+
+    public void setPaired(boolean paired) {
+        this.paired = paired;
+        this.streetPrice = this.streetPrice * 2;
+    }
+
+    public boolean isPaired() {
+        return paired;
+    }
+
+    public int getStreetRent() {
+        return streetRent;
     }
 
     public int getStreetPrice() {

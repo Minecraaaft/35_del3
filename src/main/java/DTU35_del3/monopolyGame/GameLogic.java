@@ -15,9 +15,18 @@ public class GameLogic {
     public void Start() {
         String[] names = guiController.startMenu();
 
+        int startBalance = 20;
+
+        if (names.length == 3) {
+            startBalance = 18;
+        } else if (names.length == 4) {
+            startBalance = 16;
+        }
+
         playerList = new Player[names.length];
         for (int i = 0; i < names.length; i++) {
             playerList[i] = new Player();
+            playerList[i].setBalance(startBalance);
             playerList[i].setName(names[i]);
         }
 
@@ -76,21 +85,26 @@ public class GameLogic {
     public void landOnStreet(Player player) {
         int streetPrice = board.getStreetCashPrice(player.getFieldPos());
         for (Player p : playerList) {
+            System.out.println(board.getOwned(player.getFieldPos()));
+            System.out.println(p.getName());
             if (board.getOwned(player.getFieldPos()) == p.getName() && p.getName() != player.getName()) {
                 player.removeFromBalance(streetPrice);
 
                 if (!player.getHasLost()) {
-                    player.addToBalance(streetPrice);
+                    p.addToBalance(streetPrice);
                 }
-                break;
-            } else {
-                player.removeFromBalance(streetPrice);
                 guiController.updateBalance(player.getName(), player.getBalance());
-                board.setOwner(player.getName(), player.getFieldPos());
-                guiController.buyStreet(player.getName(), player.getFieldPos());
-                System.out.println("købt");
-                break;
+                guiController.updateBalance(p.getName(), p.getBalance());
+                System.out.println(player.getName() + " pays " + p.getName());
+                return;
             }
+        }
+        if (board.getOwned(player.getFieldPos()) != player.getName()) {
+            player.removeFromBalance(streetPrice);
+            guiController.updateBalance(player.getName(), player.getBalance());
+            board.setOwner(player.getName(), player.getFieldPos());
+            guiController.buyStreet(player.getName(), player.getFieldPos());
+            System.out.println("købt");
         }
 
     }

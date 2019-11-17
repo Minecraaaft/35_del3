@@ -88,10 +88,13 @@ public class GUIController {
             }
         }
         //move player one square forthward at a time
-        for (int i = from; i < to; i++) {
+        for (int i = from; i != to; i = (i + 1) %24) {
             sleep(300);
             fields[i].setCar(choosenPlayer,false);
-            fields[i+1].setCar(choosenPlayer, true);
+            if (i == 23) {
+                fields[0].setCar(choosenPlayer, true);
+            } else
+                fields[i+1].setCar(choosenPlayer, true);
 
         }
     }

@@ -2,17 +2,16 @@ package DTU35_del3.monopolyGame;
 
 import DTU35_del3.board.Board;
 import DTU35_del3.diceCup.DiceCup;
-import DTU35_del3.player.Balance;
 import DTU35_del3.player.Player;
 
 public class GameLogic {
     private Player[] playerList;
-    private Balance balance1, balance2, balance3, balance4;
     private DiceCup diceCup = new DiceCup();
     private Board board = new Board();
     private GUIController guiController = new GUIController();
 
     public void Start() {
+        //startMenu() returns a string array of names
         String[] names = guiController.startMenu();
 
         int startBalance = 20;
@@ -30,7 +29,6 @@ public class GameLogic {
             playerList[i].setName(names[i]);
         }
 
-
         while (true) {
             for (Player p : playerList) {
                 turn(p);
@@ -45,12 +43,13 @@ public class GameLogic {
         int currentPos = player.getFieldPos();
         player.setFieldPos((player.getFieldPos() + diceCup.getFaceValueSum()) % 24);
         guiController.movePlayer(player.getName(), currentPos, player.getFieldPos());
-        System.out.println(player.getFieldPos());
+
         landOn(player);
     }
 
     public void landOn(Player player) {
         switch (player.getFieldPos()) {
+            //these positions are all streets
             case 1:
             case 2:
             case 4:
@@ -69,6 +68,7 @@ public class GameLogic {
             case 23:
                 landOnStreet(player);
                 break;
+                //these positions is chance
             case 3:
             case 9:
             case 15:
@@ -85,21 +85,23 @@ public class GameLogic {
     public void landOnStreet(Player player) {
         int streetRent = board.getStreetRent(player.getFieldPos());
         int streetPrice = board.getStreetCashPrice(player.getFieldPos());
+
+        //checks if street is owned by another player and if so pays him/her
         for (Player p : playerList) {
-            System.out.println(board.getOwned(player.getFieldPos()));
-            System.out.println(p.getName());
             if (board.getOwned(player.getFieldPos()) == p.getName() && p.getName() != player.getName()) {
                 player.removeFromBalance(streetRent);
 
                 if (!player.getHasLost()) {
                     p.addToBalance(streetRent);
                 }
+
                 guiController.updateBalance(player.getName(), player.getBalance());
                 guiController.updateBalance(p.getName(), p.getBalance());
-                System.out.println(player.getName() + " pays " + p.getName());
                 return;
             }
         }
+
+        //checks if the player owns the street if not the player is forced to buy it
         if (board.getOwned(player.getFieldPos()) != player.getName()) {
             player.removeFromBalance(streetPrice);
             guiController.updateBalance(player.getName(), player.getBalance());

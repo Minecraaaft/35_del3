@@ -38,6 +38,18 @@ public class GameLogic {
     }
 
     public void turn(Player player) {
+        if (player.getInJail()) {
+            if (player.getHasJailCard()) {
+                player.setHasJailCard(false);
+                guiController.showGUIMessage(player.getName() + " uses jail card.");
+            } else {
+                player.removeFromBalance(1);
+                guiController.updateBalance(player.getName(),player.getBalance());
+                guiController.showGUIMessage(player.getName() + " pays 1M to get out of jail.");
+            }
+            player.setInJail(false);
+        }
+
         diceCup.rollDice();
         guiController.DiceMenu(diceCup.getFaceValueSum(), player.getName());
         int currentPos = player.getFieldPos();
@@ -128,7 +140,10 @@ public class GameLogic {
     }
 
     public void landOnJail(Player player) {
-
+        guiController.moveToJail(player.getName(), player.getFieldPos());
+        player.setFieldPos(6);
+        guiController.showGUIMessage(player.getName() + " is jailed.");
+        player.setInJail(true);
     }
 
 

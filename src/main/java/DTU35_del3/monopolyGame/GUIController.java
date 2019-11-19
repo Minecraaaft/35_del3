@@ -168,5 +168,8 @@ public class GUIController {
 
         }
     }
+    public int requestInteger(String msg, int min, int max){
+        return gui.getUserInteger(msg,min,max);
+    }
 
 }

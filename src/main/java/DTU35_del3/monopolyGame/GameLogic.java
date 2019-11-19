@@ -12,6 +12,7 @@ public class GameLogic {
     private Board board = new Board();
     private GUIController guiController = new GUIController();
     private int[] chanceCards;
+    private int index = 0;
 
     public void Start() {
         //startMenu() returns a string array of names
@@ -118,7 +119,7 @@ public class GameLogic {
     }
 
     public void landOnChance(Player player) {
-        int index = 0;
+
         int cardNumber = chanceCards[index];
 
         switch (cardNumber) {
@@ -132,7 +133,10 @@ public class GameLogic {
                 break;
             //Ryk op til 5 felter
             case 2:
-
+                int steps = guiController.requestInteger("Vælg hvor mange felter du vil rykke frem. max 5", 1,5);
+                guiController.movePlayer(player.getName(),player.getFieldPos(),player.getFieldPos()+steps);
+                player.setFieldPos(player.getFieldPos() + steps);
+                landOn(player);
                 break;
             //gratis felt (orange)
             case 3:

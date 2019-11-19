@@ -140,7 +140,7 @@ public class GameLogic {
             //Ryk op til 5 felter
             case 2:
                 int steps = guiController.requestInteger("Vælg hvor mange felter du vil rykke frem. max 5", 1,5);
-                guiController.movePlayer(player.getName(),player.getFieldPos(),player.getFieldPos()+steps);
+                guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(),player.getFieldPos()+steps);
                 player.setFieldPos(player.getFieldPos() + steps);
                 landOn(player);
                 break;

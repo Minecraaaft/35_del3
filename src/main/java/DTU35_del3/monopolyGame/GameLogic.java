@@ -124,10 +124,10 @@ public class GameLogic {
 
     }
 
-    int cardNumber = 8;
+    //int cardNumber = 13;
     public void landOnChance(Player player) {
 
-        //int cardNumber = chanceCards[index];
+        int cardNumber = chanceCards[index];
         String field;
 
         switch (cardNumber) {
@@ -235,10 +235,14 @@ public class GameLogic {
             //Du løslades uden omkostninger
             case 9:
                 guiController.showGUIMessage("Du har fået et gratis \"løsladelseskort\" til næste gang du kommer i fængsel!" );
-                player.
+                player.setHasJailCard(true);
                 break;
             //Ryk frem til strandpromenaden
             case 10:
+                guiController.showGUIMessage("Du flyttes til Strandpromenaden");
+                guiController.movePlayer(player.getName(), player.getBalance(),player.getFieldPos(),23);
+                player.setFieldPos(23);
+                landOn(player);
 
                 break;
             //Katten chance kort
@@ -251,6 +255,13 @@ public class GameLogic {
                 break;
             //Fødselsdags kort
             case 13:
+                guiController.showGUIMessage("Det er din fødselsdag og alle giver dig 1 M ");
+                for (int i = 0; i < playerList.length ; i++) {
+                    guiController.updateBalance(playerList[i].getName(), playerList[i].getBalance() -1);
+                    playerList[i].setBalance(playerList[i].getBalance() -1);
+                }
+                guiController.updateBalance(player.getName(),player.getBalance() + playerList.length);
+                player.setBalance(playerList.length + player.getBalance());
 
                 break;
             //Ryk frem til punk eller mørkeblåt felt

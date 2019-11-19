@@ -84,7 +84,7 @@ public class GUIController {
 
 
     //makes an animation of player's piece moving
-    public void movePlayer(String name, int from, int to) {
+    public void movePlayer(String name, int balance, int from, int to) {
         //finds the player with that name
         GUI_Player choosenPlayer = null;
         for (GUI_Player p: GUIplayers) {
@@ -98,6 +98,7 @@ public class GUIController {
             fields[i].setCar(choosenPlayer,false);
             if (i == 23) {
                 fields[0].setCar(choosenPlayer, true);
+                updateBalance(name, balance);
             } else
                 fields[i+1].setCar(choosenPlayer, true);
 

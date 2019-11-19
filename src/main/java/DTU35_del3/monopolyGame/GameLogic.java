@@ -45,8 +45,14 @@ public class GameLogic {
         diceCup.rollDice();
         guiController.DiceMenu(diceCup.getFaceValueSum(), player.getName());
         int currentPos = player.getFieldPos();
-        player.setFieldPos((player.getFieldPos() + diceCup.getFaceValueSum()) % 24);
-        guiController.movePlayer(player.getName(), currentPos, player.getFieldPos());
+
+        player.setFieldPos((player.getFieldPos() + diceCup.getFaceValueSum()));
+        if (player.getFieldPos() > 23) {
+            player.setFieldPos(player.getFieldPos() - 24);
+            player.addToBalance(2);
+        }
+
+        guiController.movePlayer(player.getName(), player.getBalance(), currentPos, player.getFieldPos());
 
         landOn(player);
     }
@@ -127,7 +133,7 @@ public class GameLogic {
                 break;
             //Ryk frem til start. Modtag 2M
             case 1:
-                guiController.movePlayer(player.getName(), player.getFieldPos(), 0);
+                guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 0);
                 guiController.displayChanceCard("Ryk frem til start. Modtag 2M");
                 break;
             //Ryk op til 5 felter

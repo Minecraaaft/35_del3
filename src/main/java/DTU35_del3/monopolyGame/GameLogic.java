@@ -4,15 +4,19 @@ import DTU35_del3.board.Board;
 import DTU35_del3.diceCup.DiceCup;
 import DTU35_del3.player.Player;
 
+import java.util.Random;
+
 public class GameLogic {
     private Player[] playerList;
     private DiceCup diceCup = new DiceCup();
     private Board board = new Board();
     private GUIController guiController = new GUIController();
+    private int[] chanceCards;
 
     public void Start() {
         //startMenu() returns a string array of names
         String[] names = guiController.startMenu();
+        chanceCards = randomChanceCard();
 
         int startBalance = 20;
 
@@ -114,21 +118,125 @@ public class GameLogic {
     }
 
     public void landOnChance(Player player) {
-        int cardNumber = 3;
+        int index = 0;
+        int cardNumber = chanceCards[index];
+
         switch (cardNumber) {
+            //Bilen chance kort
+            case 20:
+                break;
             //Ryk frem til start. Modtag 2M
             case 1:
                 guiController.movePlayer(player.getName(), player.getFieldPos(), 0);
                 guiController.displayChanceCard("Ryk frem til start. Modtag 2M");
                 break;
+            //Ryk op til 5 felter
+            case 2:
 
+                break;
+            //gratis felt (orange)
+            case 3:
 
+                break;
+            //Ryk 1 frem eller tag et chance kort mere;
+            case 4:
+
+                break;
+            //Skibet chance kot
+            case 5:
+
+                break;
+            //Spist for meget slik
+            case 6:
+
+                break;
+            //Ryk frem til orange eller grøn
+            case 7:
+
+                break;
+            //Ryk frem til lyseblåt
+            case 8:
+
+                break;
+            //Du løslades uden omkostninger
+            case 9:
+
+                break;
+            //Ryk frem til strandpromenaden
+            case 10:
+
+                break;
+            //Katten chance kort
+            case 11:
+
+                break;
+            //Hunden chance kort
+            case 12:
+
+                break;
+            //Fødselsdags kort
+            case 13:
+
+                break;
+            //Ryk frem til punk eller mørkeblåt felt
+            case 14:
+
+                break;
+            //Lavet alle dine lektier
+            case 15:
+
+                break;
+            //ryk frem til et rødt felt
+            case 16:
+
+                break;
+            //Ryk frem til skaterparken
+            case 17:
+
+                break;
+            //ryk frem til et lyseblåt eller rødt felt
+            case 18:
+
+                break;
+            //ryk frem til et brunt eller gult felt
+            case 19:
+
+                break;
+        }
+        index++;
+        if(index == 19){
+            index = 0;
         }
 
     }
 
+
     public void landOnJail(Player player) {
 
+    }
+    public int[] randomChanceCard() {
+        //Creates a 20 long array with random numbers from 1 to 20. called "chanceArr"
+
+        int[] chanceArr = new int[20];
+        Random ran = new Random();
+        boolean inArray = false;
+        int counter = 0;
+
+        while (chanceArr[19] == 0) {
+            int ranNumber = ran.nextInt(21);
+
+            for (int i = 0; i < chanceArr.length; i++) {
+                if (chanceArr[i] == ranNumber) {
+                    inArray = true;
+                }
+            }
+            if (!inArray) {
+                chanceArr[counter] = ranNumber;
+                counter++;
+            }
+            inArray = false;
+        }
+        return chanceArr;
     }
 
 

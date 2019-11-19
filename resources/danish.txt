@@ -31,3 +31,5 @@ general
 Det er
 tur
 Kast terning
+
+chancekort

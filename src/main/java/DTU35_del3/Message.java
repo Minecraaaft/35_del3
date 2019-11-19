@@ -5,7 +5,13 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Message {
-    public static String getMessage(String language, String keyWord, int line) {
+    private static String language;
+
+    public Message(String language) {
+        this.language = language;
+    }
+
+    public static String getMessage(String keyWord, int line) {
         String msg = "";
         String file = "";
 

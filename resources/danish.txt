@@ -1,0 +1,33 @@
+board names
+Burgerbaren
+Pizzariaet
+Prøv lykken
+Slikbutikken
+Isbutikken
+På besøg
+Museet
+Biblioteket
+Prøv lykken
+Skaterparken
+Svømmehallen
+Gratis parkering
+Spillehallen
+Biografen
+Prøv lykken
+Legetøjsbutik
+Dyrehandlen
+Gå i fængsel
+Bowlinghallen
+Zoo
+Prøv lykken
+Vandlandet
+Strand
+
+start menu
+Hvor mange spillere?
+skriv navn.
+
+general
+Det er
+tur
+Kast terning

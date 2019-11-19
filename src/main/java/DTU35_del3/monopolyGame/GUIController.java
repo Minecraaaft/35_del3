@@ -120,20 +120,19 @@ public class GUIController {
 
     //shows the street is bought and by whom
     public void buyStreet(String name, int pos) {
-        //finds the player with that name
-        GUI_Player choosenPlayer = null;
+        //finds the player with that name an gets the color
+        Color carColor = null;
         for (GUI_Player p: GUIplayers) {
             if (p.getName().equals(name)){
-                choosenPlayer = p;
+                carColor = p.getCar().getPrimaryColor();
             }
         }
 
-        int streetIndex = pos - 1;
-
-        streets[streetIndex].setBorder(choosenPlayer.getCar().getPrimaryColor());
+        ((GUI_Brewery) fields[pos]).setBorder(carColor);
     }
 
     //moves player to jail
+    //player position in gameLogic has to change after using this method
     public void moveToJail(String name, int currentPos) {
         //finds the player with that name
         GUI_Player choosenPlayer = null;

@@ -43,6 +43,7 @@ public class GameLogic {
     }
 
     public void turn(Player player) {
+        //if in jail
         if (player.getInJail()) {
             if (player.getHasJailCard()) {
                 player.setHasJailCard(false);

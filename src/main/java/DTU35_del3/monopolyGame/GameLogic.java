@@ -124,9 +124,11 @@ public class GameLogic {
 
     }
 
+    int cardNumber = 8;
     public void landOnChance(Player player) {
 
-        int cardNumber = chanceCards[index];
+        //int cardNumber = chanceCards[index];
+        String field;
 
         switch (cardNumber) {
             //Bilen chance kort
@@ -140,37 +142,100 @@ public class GameLogic {
             //Ryk op til 5 felter
             case 2:
                 int steps = guiController.requestInteger("Vælg hvor mange felter du vil rykke frem. max 5", 1,5);
-                guiController.movePlayer(player.getName(),player.getFieldPos(),player.getFieldPos()+steps);
+                guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(),player.getFieldPos()+steps);
                 player.setFieldPos(player.getFieldPos() + steps);
                 landOn(player);
                 break;
             //gratis felt (orange)
             case 3:
-
+                field = guiController.requestField("Hvilket orange felt vil du rykke til","SWIMMINGPOOLEN","SKATERPARKEN");
+                if(field.equals("SWIMMINGPOOLEN")){
+                    guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 11);
+                    player.setFieldPos(11);
+                    landOn(player);
+                }
+                else if (field.equals("SKATERPARKEN")) {
+                    guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 10);
+                    player.setFieldPos(10);
+                    landOn(player);
+                }
                 break;
             //Ryk 1 frem eller tag et chance kort mere;
             case 4:
+                field = guiController.requestField("Vil du rykke 1 felt frem eller tage et chance kort mere","Ryk 1 felt frem","Tag et chance kort mere");
+                if(field.equals("Ryk 1 felt frem")){
+                    guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), player.getFieldPos() + 1);
+                    player.setFieldPos(player.getFieldPos() + 1);
+                    landOn(player);
 
+                }
+                else if (field.equals("Tag et chance kort mere")) {
+                    index++;
+                    if(index == 19){
+                        index = 0;}
+                    landOnChance(player);
+                }
                 break;
+
             //Skibet chance kot
             case 5:
 
                 break;
             //Spist for meget slik
             case 6:
+                guiController.showGUIMessage("Du har spist for meget slik: BETAL 2 TIL BANKEN");
+                guiController.updateBalance(player.getName(),player.getBalance()-2);
+                player.setBalance(player.getBalance() -2 );
 
                 break;
             //Ryk frem til orange eller grøn
             case 7:
+                field = guiController.requestField("Hvilken farve vil du rykke frem til?","Orange","Grøn");
+                if(field.equals("Orange")) {
+                    field = guiController.requestField("Hvilket orange felt vil du rykke til","SWIMMINGPOOLEN","SKATERPARKEN");
+                    if (field.equals("SWIMMINGPOOLEN")) {
+                        guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 11);
+                        player.setFieldPos(11);
+                        landOn(player);
+                    } else if (field.equals("SKATERPARKEN")) {
+                        guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 10);
+                        player.setFieldPos(10);
+                        landOn(player);
+                    }
+                }
+                else if(field.equals("Grøn")){
+                    field = guiController.requestField("Hvilket grønt felt vil du rykke til","ZOO","BOWLINGHALLEN");
+                    if (field.equals("ZOO")) {
+                        guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 20);
+                        player.setFieldPos(20);
+                        landOn(player);
+                    } else if (field.equals("BOWLINGHALLEN")) {
+                        guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 19);
+                        player.setFieldPos(19);
+                        landOn(player);
+                    }
 
+                }
                 break;
             //Ryk frem til lyseblåt
             case 8:
+                field = guiController.requestField("Hvilket Lyseblåt felt vil du rykke til","ISKIOSKEN","SLIKBUTIKKEN");
+                if(field.equals("ISKIOSKEN")){
+                    guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 5);
+                    player.setFieldPos(5);
+                    landOn(player);
+                }
+                else if (field.equals("SLIKBUTIKKEN")) {
+                    guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 4);
+                    player.setFieldPos(4);
+                    landOn(player);
+                }
 
                 break;
             //Du løslades uden omkostninger
             case 9:
-
+                guiController.showGUIMessage("Du har fået et gratis \"løsladelseskort\" til næste gang du kommer i fængsel!" );
+                player.
                 break;
             //Ryk frem til strandpromenaden
             case 10:

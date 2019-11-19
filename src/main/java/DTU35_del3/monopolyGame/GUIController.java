@@ -128,9 +128,8 @@ public class GUIController {
             }
         }
 
-        int streetIndex = pos - 1;
-
-        streets[streetIndex].setBorder(choosenPlayer.getCar().getPrimaryColor());
+        Color carColor = choosenPlayer.getCar().getPrimaryColor();
+        ((GUI_Brewery) fields[pos]).setBorder(carColor);
     }
 
     //moves player to jail

@@ -7,6 +7,8 @@ public class Player {
     private static int playerNumber;
     private int fieldPos;
     private boolean hasLost;
+    private boolean inJail;
+    private boolean hasJailCard;
     private Balance balance = new Balance();
 
     public Player() {
@@ -32,6 +34,14 @@ public class Player {
         return balance.getBalance();
     }
 
+    public boolean getInJail() {
+        return inJail;
+    }
+
+    public boolean getHasJailCard() {
+        return hasJailCard;
+    }
+
     //Setters
     public void setName(String name) {
         if (name.length() == 0)
@@ -39,8 +49,16 @@ public class Player {
         this.name = name;
     }
 
+    public void setHasJailCard(boolean hasJailCard) {
+        this.hasJailCard = hasJailCard;
+    }
+
     public void setBalance(int amount) {
         this.balance.setBalance(amount);
+    }
+
+    public void setInJail(boolean inJail) {
+        this.inJail = inJail;
     }
 
     public void removeFromBalance(int amount) {

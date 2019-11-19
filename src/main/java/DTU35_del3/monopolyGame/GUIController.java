@@ -132,6 +132,7 @@ public class GUIController {
     }
 
     //moves player to jail
+    //player position in gameLogic has to change after using this method
     public void moveToJail(String name, int currentPos) {
         //finds the player with that name
         GUI_Player choosenPlayer = null;

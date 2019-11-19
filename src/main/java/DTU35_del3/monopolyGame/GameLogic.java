@@ -136,6 +136,7 @@ public class GameLogic {
             case 1:
                 guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 0);
                 guiController.displayChanceCard("Ryk frem til start. Modtag 2M");
+                player.setFieldPos(0);
                 break;
             //Ryk op til 5 felter
             case 2:

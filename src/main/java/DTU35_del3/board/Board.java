@@ -22,8 +22,8 @@ public class Board {
         Streets[11] = new Street("Dyrehandlen", "yellow",3, 17, 3);
         Streets[12] = new Street("Bowlinghallen", "green",4, 19,4);
         Streets[13] = new Street("Zoo", "green",4, 20,4);
-        Streets[14] = new Street("Vandlandet", "blue",5, 22,4);
-        Streets[15] = new Street("Strandpromenaden", "blue",5, 23,4);
+        Streets[14] = new Street("Vandlandet", "blue",5, 22,5);
+        Streets[15] = new Street("Strandpromenaden", "blue",5, 23,5);
     }
 
     public void checkForPairs() {

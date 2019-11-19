@@ -39,8 +39,8 @@ public class GUIController {
             new GUI_Brewery("src/main/java/Pictures/Bowling.jpg", "Bowlinghallen", "4M", "", "4", new Color(5, 118, 8), Color.BLACK),
             new GUI_Brewery("src/main/java/Pictures/Zoo.jpg", "Zoo", "4M", "", "4", new Color(5, 118, 8), Color.BLACK),
             new GUI_Brewery("src/main/java/Pictures/Chance.jpg", "Chance", "", "", "", new Color(235, 156, 48), Color.BLACK),
-            new GUI_Brewery("src/main/java/Pictures/Vandland.jpg", "Vandlandet", "4M", "", "4", new Color(45, 113, 235), Color.BLACK),
-            new GUI_Brewery("src/main/java/Pictures/Strand.jpg", "Strandpromenaden", "4M", "", "4", new Color(45, 113, 235), Color.BLACK)
+            new GUI_Brewery("src/main/java/Pictures/Vandland.jpg", "Vandlandet", "5M", "", "5", new Color(45, 113, 235), Color.BLACK),
+            new GUI_Brewery("src/main/java/Pictures/Strand.jpg", "Strandpromenaden", "5M", "", "5", new Color(45, 113, 235), Color.BLACK)
     };
     private GUI_Field[] fields = {
             new GUI_Start("START", "", "",  Color.RED, Color.WHITE),

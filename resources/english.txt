@@ -1,0 +1,33 @@
+board names
+Burgerbar
+Pizzaria
+Chance
+Candy shop
+Ice-cream shop
+Visit in jail
+Museum
+Library
+Chance
+Skatepark
+Swimming pool
+Free parking
+Arcade
+Cinema
+Chance
+Toy store
+Pet shop
+Go to jail
+Bowling alley
+Zoo
+Chance
+Waterpark
+Beach
+
+start menu
+How many players?
+Write name.
+
+general
+It is
+turn
+Roll dice

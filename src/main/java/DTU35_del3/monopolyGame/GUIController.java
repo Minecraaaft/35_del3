@@ -1,5 +1,6 @@
 package DTU35_del3.monopolyGame;
 
+import DTU35_del3.Message;
 import DTU35_del3.board.Board;
 import DTU35_del3.player.Player;
 import gui_fields.*;
@@ -8,6 +9,8 @@ import gui_main.GUI;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
+
+import static DTU35_del3.Message.getMessage;
 
 public class GUIController {
     private GUI_Player[] GUIplayers;
@@ -47,7 +50,7 @@ public class GUIController {
     private GUI gui = new GUI(fields);
 
     public String[] startMenu() {
-        int players = gui.getUserInteger("How many players?", 2, 4);
+        int players = gui.getUserInteger(getMessage("start menu", 1), 2, 4);
 
         int balance=0;
         if (players == 2) {
@@ -61,7 +64,7 @@ public class GUIController {
         //requests names and stores them in an array which then is returned at end of method
         String[] names = new String[players];
         for (int i = 0; i < players; i++) {
-            names[i] = gui.getUserString("Player " + (i+1) + ", choose name please:");
+            names[i] = gui.getUserString(getMessage("start menu", 2) + (i+1) + getMessage("start menu", 3));
         }
 
         //checks for same name and gives players new names
@@ -155,7 +158,7 @@ public class GUIController {
     }
 
     public void DiceMenu(int value, String name) {
-        gui.getUserButtonPressed("It's " + name + " turn.", "Roll dice");
+        gui.getUserButtonPressed(getMessage("general", 1) + name + getMessage("general", 2), getMessage("general", 3));
         gui.setDie(value);
     }
 

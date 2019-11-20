@@ -10,7 +10,7 @@ import java.util.Random;
 public class GameLogic {
     private Player[] playerList;
     private DiceCup diceCup = new DiceCup();
-    private Board board;
+    private Board board = new Board();
     private GUIController guiController = new GUIController();
     private int[] chanceCards;
     private int index = 0;
@@ -18,7 +18,7 @@ public class GameLogic {
     public void Start() {
         String language = guiController.requestOption("Choose language", "danish", "english");
         new Message(language);
-        board = new Board();
+
         //startMenu() returns a string array of names
         String[] names = guiController.startMenu();
         chanceCards = randomChanceCard();

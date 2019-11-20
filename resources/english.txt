@@ -26,7 +26,8 @@ Beach
 
 start menu
 How many players?
-Write name.
+Player
+, choose name please:
 
 general
 It is

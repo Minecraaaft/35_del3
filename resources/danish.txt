@@ -26,11 +26,12 @@ Strand
 
 start menu
 Hvor mange spillere?
-skriv navn.
+Spiller
+, skriv navn:
 
 general
 Det er
-tur
+ tur
 Kast terning
 
 chancekort

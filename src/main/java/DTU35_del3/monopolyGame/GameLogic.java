@@ -1,5 +1,6 @@
 package DTU35_del3.monopolyGame;
 
+import DTU35_del3.Message;
 import DTU35_del3.board.Board;
 import DTU35_del3.diceCup.DiceCup;
 import DTU35_del3.player.Player;
@@ -9,12 +10,15 @@ import java.util.Random;
 public class GameLogic {
     private Player[] playerList;
     private DiceCup diceCup = new DiceCup();
-    private Board board = new Board();
+    private Board board;
     private GUIController guiController = new GUIController();
     private int[] chanceCards;
     private int index = 0;
 
     public void Start() {
+        String language = guiController.requestOption("Choose language", "danish", "english");
+        new Message(language);
+        board = new Board();
         //startMenu() returns a string array of names
         String[] names = guiController.startMenu();
         chanceCards = randomChanceCard();
@@ -142,13 +146,18 @@ public class GameLogic {
             //Ryk op til 5 felter
             case 2:
                 int steps = guiController.requestInteger("Vælg hvor mange felter du vil rykke frem. max 5", 1,5);
-                guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(),player.getFieldPos()+steps);
-                player.setFieldPos(player.getFieldPos() + steps);
+                int placementAfter = player.getFieldPos() + steps;
+                if (placementAfter > 23) {
+                    placementAfter = placementAfter - 24;
+                }
+                guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(),placementAfter);
+                player.setFieldPos(placementAfter);
+
                 landOn(player);
                 break;
             //gratis felt (orange)
             case 3:
-                field = guiController.requestField("Hvilket orange felt vil du rykke til","SWIMMINGPOOLEN","SKATERPARKEN");
+                field = guiController.requestOption("Hvilket orange felt vil du rykke til","SWIMMINGPOOLEN","SKATERPARKEN");
                 if(field.equals("SWIMMINGPOOLEN")){
                     guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 11);
                     player.setFieldPos(11);
@@ -162,7 +171,7 @@ public class GameLogic {
                 break;
             //Ryk 1 frem eller tag et chance kort mere;
             case 4:
-                field = guiController.requestField("Vil du rykke 1 felt frem eller tage et chance kort mere","Ryk 1 felt frem","Tag et chance kort mere");
+                field = guiController.requestOption("Vil du rykke 1 felt frem eller tage et chance kort mere","Ryk 1 felt frem","Tag et chance kort mere");
                 if(field.equals("Ryk 1 felt frem")){
                     guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), player.getFieldPos() + 1);
                     player.setFieldPos(player.getFieldPos() + 1);
@@ -190,9 +199,9 @@ public class GameLogic {
                 break;
             //Ryk frem til orange eller grøn
             case 7:
-                field = guiController.requestField("Hvilken farve vil du rykke frem til?","Orange","Grøn");
+                field = guiController.requestOption("Hvilken farve vil du rykke frem til?","Orange","Grøn");
                 if(field.equals("Orange")) {
-                    field = guiController.requestField("Hvilket orange felt vil du rykke til","SWIMMINGPOOLEN","SKATERPARKEN");
+                    field = guiController.requestOption("Hvilket orange felt vil du rykke til","SWIMMINGPOOLEN","SKATERPARKEN");
                     if (field.equals("SWIMMINGPOOLEN")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 11);
                         player.setFieldPos(11);
@@ -204,7 +213,7 @@ public class GameLogic {
                     }
                 }
                 else if(field.equals("Grøn")){
-                    field = guiController.requestField("Hvilket grønt felt vil du rykke til","ZOO","BOWLINGHALLEN");
+                    field = guiController.requestOption("Hvilket grønt felt vil du rykke til","ZOO","BOWLINGHALLEN");
                     if (field.equals("ZOO")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 20);
                         player.setFieldPos(20);
@@ -219,7 +228,7 @@ public class GameLogic {
                 break;
             //Ryk frem til lyseblåt
             case 8:
-                field = guiController.requestField("Hvilket Lyseblåt felt vil du rykke til","ISKIOSKEN","SLIKBUTIKKEN");
+                field = guiController.requestOption("Hvilket Lyseblåt felt vil du rykke til","ISKIOSKEN","SLIKBUTIKKEN");
                 if(field.equals("ISKIOSKEN")){
                     guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 5);
                     player.setFieldPos(5);

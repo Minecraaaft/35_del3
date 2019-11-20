@@ -8,7 +8,7 @@ public class Message {
     private static String language;
 
     public Message(String language) {
-        this.language = language;
+        Message.language = language;
     }
 
     public static String getMessage(String keyWord, int line) {

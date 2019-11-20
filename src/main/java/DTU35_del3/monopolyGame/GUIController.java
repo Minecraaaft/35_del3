@@ -70,6 +70,16 @@ public class GUIController {
             names[i] = gui.getUserString("Player " + (i+1) + ", choose name please:");
         }
 
+        //checks for same name and gives players new names
+        for (int i = 0; i < names.length-1; i++) {
+            if (names[i].equals(names[i+1]) && names[i].equals("Player " + (i+1))){
+                names[i] = "Colle";
+            }
+            else if (names[i].equals(names[i+1])) {
+                    names[i] = "Player " + (i+1);
+                }
+            }
+
         //players are added to the board
         GUIplayers = new GUI_Player[names.length];
         for (int i = 0; i < players; i++) {

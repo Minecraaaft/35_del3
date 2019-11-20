@@ -23,7 +23,7 @@ public class Message {
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
-            for (int i = 0; i < 20; i++) {
+            while (true) {
                 String currentLine = reader.readLine();
 
                 if (currentLine == null) {

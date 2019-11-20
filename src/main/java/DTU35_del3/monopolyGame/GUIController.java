@@ -158,7 +158,7 @@ public class GUIController {
     }
 
     public void DiceMenu(int value, String name) {
-        gui.getUserButtonPressed(getMessage("general", 1) + name + getMessage("general", 2), getMessage("general", 3));
+        gui.getUserButtonPressed(getMessage("general", 1) + " " + name + getMessage("general", 2), getMessage("general", 3));
         gui.setDie(value);
     }
 

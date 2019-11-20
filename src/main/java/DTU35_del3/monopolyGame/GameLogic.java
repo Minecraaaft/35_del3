@@ -193,7 +193,7 @@ public class GameLogic {
 
             //Skibet chance kot
             case 5:
-                guiController.displayChanceCard("Du har Trukket " + playerList[0].getName() + "speciale kort og giver det til ham");
+                guiController.displayChanceCard("Du har Trukket " + playerList[0].getName() + " speciale kort og giver det til ham");
                 playerList[0].setHasPlayerCard(true);
 
                 break;
@@ -346,36 +346,114 @@ public class GameLogic {
                 ,"Strandpromenaden"};
         int counter = 0;
         int counter2 = 0;
+        int counter3 = 0;
         String field;
-        for (int i = 0; i < 15 ; i++) {
+        for (int i = 0; i < 16 ; i++) {
             if (board.getOwned(i).equals("") );
             counter++;
         }
         String[] playerChoices = new String[counter];
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 16; i++) {
             if(board.getOwned(i).equals("")){
                 playerChoices[counter2] = streets[i];
                 counter2++;
             }
         }
         field = guiController.requestField2("vælg hvilket felt du vil rykke til", playerChoices);
-        if(field.equals("Burgerbaren")){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(),player.getFieldPos() + 2);
-            player.setFieldPos(player.getFieldPos() + 2);
+        if(field.equals(streets[0])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 1);
+            player.setFieldPos( 1);
             landOn(player);
         }
+        else if (field.equals(streets[1])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 2);
+            player.setFieldPos( 2);
+            landOn(player);
+        }
+        else if (field.equals(streets[2])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 4);
+            player.setFieldPos( 4);
+            landOn(player);
+        }
+        else if (field.equals(streets[3])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 5);
+            player.setFieldPos( 5);
+            landOn(player);
+        }
+        else if (field.equals(streets[4])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 7);
+            player.setFieldPos( 7);
+            landOn(player);
+        }
+        else if (field.equals(streets[5])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 8);
+            player.setFieldPos( 8);
+            landOn(player);
+        }
+        else if (field.equals(streets[6])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 10);
+            player.setFieldPos( 10);
+            landOn(player);
+        }
+        else if (field.equals(streets[7])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 11);
+            player.setFieldPos( 11);
+            landOn(player);
+        }
+        else if (field.equals(streets[8])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 13);
+            player.setFieldPos( 13);
+            landOn(player);
+        }
+        else if (field.equals(streets[9])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 14);
+            player.setFieldPos( 14);
+            landOn(player);
+        }
+        else if (field.equals(streets[10])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 16);
+            player.setFieldPos( 16);
+            landOn(player);
+        }
+        else if (field.equals(streets[11])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 17);
+            player.setFieldPos( 17);
+            landOn(player);
+        }
+        else if (field.equals(streets[12])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 19);
+            player.setFieldPos( 19);
+            landOn(player);
+        }
+        else if (field.equals(streets[13])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 20);
+            player.setFieldPos( 20);
+            landOn(player);
+        }
+        else if (field.equals(streets[14])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 22);
+            player.setFieldPos( 22);
+            landOn(player);
+        }
+        else if (field.equals(streets[15])){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 23);
+            player.setFieldPos( 23);
+            landOn(player);
+        }
+
+
         player.setHasPlayerCard(false);
 
-//        else (field.equals("Burgerbaren")){
-//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(),player.getFieldPos() + 2);
-//        }
-
-//                String[] test = {"swimmingpool", "house", "tent"};
-//                field = guiController.requestField2("hello",test);
-//                if(field.equals("tent")){
-//                    guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(),player.getFieldPos() + 2);
-//                }
-
+//        Hvad der stadig mangler list:
+//        hvis alle felter er optaget
+//        at trække nyt kort efter man har fået spiller kort
+//        de andre spillers kort
+//        hvis der kun er 2 og 3 spillere.
+//        med 2 spillere kan man ikke trykke vidre når spiller 2 lander på nr.2 chancekort???
+//
+//
+//
+//
     }
 
 

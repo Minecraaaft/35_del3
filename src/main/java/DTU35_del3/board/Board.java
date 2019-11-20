@@ -61,6 +61,7 @@ public class Board {
         return streetNumber;
     }
 
+    //Returns an empty string that if it has no player assigned to it
     public String getOwned(int pos) {
         String ownedBy = "";
         for (Street s : Streets) {

@@ -9,6 +9,7 @@ public class Player {
     private boolean hasLost;
     private boolean inJail;
     private boolean hasJailCard;
+    private boolean hasPlayerCard;
     private Balance balance = new Balance();
 
     public Player() {
@@ -41,6 +42,9 @@ public class Player {
     public boolean getHasJailCard() {
         return hasJailCard;
     }
+    public boolean getHasPlayerCard() {
+        return hasPlayerCard;
+    }
 
     //Setters
     public void setName(String name) {
@@ -51,6 +55,9 @@ public class Player {
 
     public void setHasJailCard(boolean hasJailCard) {
         this.hasJailCard = hasJailCard;
+    }
+    public void setHasPlayerCard(boolean hasPlayerCard){
+        this.hasPlayerCard = hasPlayerCard;
     }
 
     public void setBalance(int amount) {

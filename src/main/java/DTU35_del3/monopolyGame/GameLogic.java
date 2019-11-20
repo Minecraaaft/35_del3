@@ -47,19 +47,24 @@ public class GameLogic {
     }
 
     public void turn(Player player) {
-        diceCup.rollDice();
-        guiController.DiceMenu(diceCup.getFaceValueSum(), player.getName());
-        int currentPos = player.getFieldPos();
-
-        player.setFieldPos((player.getFieldPos() + diceCup.getFaceValueSum()));
-        if (player.getFieldPos() > 23) {
-            player.setFieldPos(player.getFieldPos() - 24);
-            player.addToBalance(2);
+        if(player.getHasPlayerCard()){
+            playerCard(player);
         }
+        else {
+            diceCup.rollDice();
+            guiController.DiceMenu(diceCup.getFaceValueSum(), player.getName());
+            int currentPos = player.getFieldPos();
 
-        guiController.movePlayer(player.getName(), player.getBalance(), currentPos, player.getFieldPos());
+            player.setFieldPos((player.getFieldPos() + diceCup.getFaceValueSum()));
+            if (player.getFieldPos() > 23) {
+                player.setFieldPos(player.getFieldPos() - 24);
+                player.addToBalance(2);
+            }
 
+            guiController.movePlayer(player.getName(), player.getBalance(), currentPos, player.getFieldPos());
+        }
         landOn(player);
+
     }
 
     public void landOn(Player player) {
@@ -128,10 +133,10 @@ public class GameLogic {
 
     }
 
-    //int cardNumber = 13;
+    int cardNumber = 5;
     public void landOnChance(Player player) {
 
-        int cardNumber = chanceCards[index];
+        //int cardNumber = chanceCards[index];
         String field;
 
         switch (cardNumber) {
@@ -188,6 +193,8 @@ public class GameLogic {
 
             //Skibet chance kot
             case 5:
+                guiController.displayChanceCard("Du har Trukket " + playerList[0].getName() + "speciale kort og giver det til ham");
+                playerList[0].setHasPlayerCard(true);
 
                 break;
             //Spist for meget slik
@@ -332,6 +339,43 @@ public class GameLogic {
             inArray = false;
         }
         return chanceArr;
+    }
+    public void playerCard(Player player){
+        String[] streets = {"Burgerbaren","Pizzeriaet","Slikbutikken","Iskiosken","Museet","Biblioteket"
+                ,"Skaterparken","Swimmingpoolen","Spillehallen","Biografen","Legetøjsbutikken","Dyrehandlen","Bowlinghallen","Zoo","Vandlandet"
+                ,"Strandpromenaden"};
+        int counter = 0;
+        int counter2 = 0;
+        String field;
+        for (int i = 0; i < 15 ; i++) {
+            if (board.getOwned(i).equals("") );
+            counter++;
+        }
+        String[] playerChoices = new String[counter];
+        for (int i = 0; i < 15; i++) {
+            if(board.getOwned(i).equals("")){
+                playerChoices[counter2] = streets[i];
+                counter2++;
+            }
+        }
+        field = guiController.requestField2("vælg hvilket felt du vil rykke til", playerChoices);
+        if(field.equals("Burgerbaren")){
+            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(),player.getFieldPos() + 2);
+            player.setFieldPos(player.getFieldPos() + 2);
+            landOn(player);
+        }
+        player.setHasPlayerCard(false);
+
+//        else (field.equals("Burgerbaren")){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(),player.getFieldPos() + 2);
+//        }
+
+//                String[] test = {"swimmingpool", "house", "tent"};
+//                field = guiController.requestField2("hello",test);
+//                if(field.equals("tent")){
+//                    guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(),player.getFieldPos() + 2);
+//                }
+
     }
 
 

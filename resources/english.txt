@@ -31,3 +31,30 @@ general
 It is
 turn
 Roll dice
+
+chancekort
+Give this card to the racecar, and take another chance card.
+Racecar: On your next turn, you have to race to any available field and buy it.
+If there aren't any available fields, then you have to buy one from another player.
+Move to start. Receive M2.
+Move upto 5 fields forward.
+Move to an orange field. If the field is available, you get it for free. Else you have to pay the rent to the owner.
+Move a field forward or else pull another chance card.
+Give this card to the car, and take another chance card.
+Car: On your next turn, you have to race to any available field and buy it.
+You have eaten to much candy. Pay the bank M2.
+Move to an orange or green field. If the field is available, you get it for free. Else you have to pay the rent to the
+owner.
+Move to the light blue field. If the field is available, you get it for free. Else you have to pay the rent to the owner
+You are released with no charge. Keep this card until you will need it.
+Move to the beach.
+Give this card to the tractor, and take another chance card.
+Tractor: On your next turn, you have to race to any available field and buy it.
+Give this card to the UFO, and take another chance card.
+UFO: On your next turn, you have to race to any available field and buy it.
+It's your birthday! Everybody will give you M1. HAPPY BIRTHDAY!
+Move to a pink or darkblue field. If the field is available, you get it for free. Else you have to pay the rent to the
+owner.
+You have done all your homework. Receive M2 from the bank.
+Move to the red field. If the field is available, you get it for free. Or else you have to pay the rent to the owner.
+Move to the skatepark. If it is available, you get it for free. Or else you have to pay rent to the owner.

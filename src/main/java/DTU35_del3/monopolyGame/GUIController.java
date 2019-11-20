@@ -17,8 +17,9 @@ public class GUIController {
                                 new GUI_Car(Color.yellow, Color.BLACK, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL)
     };
 
-
-    private GUI_Brewery[] streets = {new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M", "", "1", new Color(112, 75, 0), Color.BLACK),
+    private GUI_Field[] fields = {
+            new GUI_Start("START", "", "",  Color.RED, Color.WHITE),
+            new GUI_Brewery("src/main/java/Pictures/Burger.jpg", "Burgerbaren", "1M", "", "1", new Color(112, 75, 0), Color.BLACK),
             new GUI_Brewery("src/main/java/Pictures/Pizza.jpg", "Pizzariaet", "1M", "", "1", new Color(112, 75, 0), Color.BLACK),
             new GUI_Brewery("src/main/java/Pictures/Chance.jpg", "Chance", "", "", "", new Color(235, 156, 48), Color.BLACK),
             new GUI_Brewery("src/main/java/Pictures/Slik.jpg", "Slikbutikken", "1M", "", "1", new Color(135, 206, 235), Color.BLACK),
@@ -42,15 +43,8 @@ public class GUIController {
             new GUI_Brewery("src/main/java/Pictures/Vandland.jpg", "Vandlandet", "5M", "", "5", new Color(45, 113, 235), Color.BLACK),
             new GUI_Brewery("src/main/java/Pictures/Strand.jpg", "Strandpromenaden", "5M", "", "5", new Color(45, 113, 235), Color.BLACK)
     };
-    private GUI_Field[] fields = {
-            new GUI_Start("START", "", "",  Color.RED, Color.WHITE),
-            streets[0], streets[1], streets[2], streets[3], streets[4], streets[5], streets[6], streets[7], streets[8],
-            streets[9], streets[10], streets[11], streets[12], streets[13], streets[14], streets[15], streets[16], streets[17],
-            streets[18], streets[19], streets[20], streets[21], streets[22],
-    };
 
     private GUI gui = new GUI(fields);
-
 
     public String[] startMenu() {
         int players = gui.getUserInteger("How many players?", 2, 4);

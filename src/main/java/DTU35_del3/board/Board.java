@@ -5,11 +5,9 @@ import java.util.Arrays;
 import static DTU35_del3.Message.getMessage;
 
 public class Board {
-//    private Message message;
+
     private Street[] Streets = new Street[16];
     public Board() {
-//        message = new Message(language);
-
         Streets[0] = new Street(getMessage("board names", 1), "brown", 1, 1,1);
         Streets[1] = new Street(getMessage("board names", 2), "brown",1, 2,1);
         Streets[2] = new Street(getMessage("board names", 4), "lightblue",1, 4,1);
@@ -47,9 +45,6 @@ public class Board {
         return isPaired;
     }
 
-//    public String getStreetName(int streetNumber) {
-//        return Streets[streetNumber].getName();
-//    }
 
     public int getStreetNumber(String streetName) {
         int streetNumber = 404;

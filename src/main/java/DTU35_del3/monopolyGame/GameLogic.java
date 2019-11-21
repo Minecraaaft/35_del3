@@ -210,6 +210,7 @@ public class GameLogic {
                 int placementAfter = player.getFieldPos() + steps;
                 if (placementAfter > 23) {
                     placementAfter = placementAfter - 24;
+                    player.addToBalance(2);
                 }
                 guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(),placementAfter);
                 player.setFieldPos(placementAfter);
@@ -219,7 +220,13 @@ public class GameLogic {
             //gratis felt (orange)
             case 3:
                 field = guiController.requestOption("Hvilket orange felt vil du rykke til","SWIMMINGPOOLEN","SKATERPARKEN");
+                //if player passes start
+                if (player.getFieldPos() == 15 || player.getFieldPos() == 21) {
+                    player.addToBalance(2);
+                }
+
                 if(field.equals("SWIMMINGPOOLEN")){
+
                     guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 11);
                     player.setFieldPos(11);
                     landOn(player);

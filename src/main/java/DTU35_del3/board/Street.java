@@ -2,7 +2,6 @@ package DTU35_del3.board;
 
 public class Street {
     private String name;
-//    private String message;
     private int streetPrice;
     private int streetNumber;
     private boolean paired;
@@ -12,7 +11,6 @@ public class Street {
 
     public Street(String name, String streetColor, int streetPrice, int streetNumber, int streetRent) {
         this.name = name;
-//        this.message = message;
         this.streetPrice = streetPrice;
         this.streetNumber = streetNumber;
         this.streetColor = streetColor;

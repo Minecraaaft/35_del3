@@ -35,25 +35,14 @@ public class Board {
         }
     }
 
-    public boolean isPaired(int streetNumber) {
-        boolean isPaired = false;
+    public int getStreetPrice(int pos) {
+        int price=0;
         for (Street s : Streets) {
-            if (streetNumber == s.getStreetNumber()) {
-                isPaired = s.isPaired();
+            if (pos == s.getStreetNumber()) {
+                price = s.getPrice();
             }
         }
-        return isPaired;
-    }
-
-
-    public int getStreetNumber(String streetName) {
-        int streetNumber = 404;
-        for (Street a: Streets) {
-            if (streetName.equals(a.getName())) {
-                streetNumber = a.getStreetNumber();
-            }
-        }
-        return streetNumber;
+        return price;
     }
 
     //Returns an empty string that if it has no player assigned to it
@@ -68,6 +57,16 @@ public class Board {
         return ownedBy;
     }
 
+    public int getStreetRent(int pos) {
+        int price=0;
+        for (Street s : Streets) {
+            if (pos == s.getStreetNumber()) {
+                price = s.getRent();
+            }
+        }
+        return price;
+    }
+
     public void setOwner(String name, int pos) {
         for (Street s : Streets) {
             if (pos == s.getStreetNumber()) {
@@ -77,44 +76,6 @@ public class Board {
     }
 
 
-    public String getColor(int streetNumber) {
-        String color ="";
-        for (Street s : Streets) {
-            if (streetNumber == s.getStreetNumber()) {
-                color = s.getcolor();
-            }
-        }
-        return color;
-    }
 
-    public int getStreetCashPrice(int streetNumber) {
-        int price=0;
-        for (Street s : Streets) {
-            if (streetNumber == s.getStreetNumber()) {
-                price = s.getPrice();
-            }
-        }
-        return price;
-    }
-
-    public int getrent(int streetNumber) {
-        int price=0;
-        for (Street s : Streets) {
-            if (streetNumber == s.getStreetNumber()) {
-                price = s.getRent();
-            }
-        }
-        return price;
-    }
-
-    public int getStreetCashPrice(String streetName) {
-        int cash = 404;
-        for (Street a: Streets) {
-            if (streetName.equals(a.getName())) {
-                cash = a.getPrice();
-            }
-        }
-        return cash;
-    }
 
 }

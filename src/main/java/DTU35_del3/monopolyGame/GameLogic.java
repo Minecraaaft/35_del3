@@ -150,8 +150,8 @@ public class GameLogic {
     }
 
     public void landOnStreet(Player player) {
-        int rent = board.getrent(player.getFieldPos());
-        int price = board.getStreetCashPrice(player.getFieldPos());
+        int rent = board.getStreetRent(player.getFieldPos());
+        int price = board.getStreetPrice(player.getFieldPos());
 
         //checks if street is owned by another player and if so pays him/her
         for (Player p : playerList) {

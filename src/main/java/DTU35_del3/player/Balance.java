@@ -6,19 +6,19 @@ public class Balance {
     public Balance() {
     }
 
-    public int getBalance() {
-        return balance;
-    }
-
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
-
     public void addToBalance(int amount) {
         this.balance += amount;
     }
 
     public void removeFromBalance(int amount) {
         this.balance -= amount;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 }

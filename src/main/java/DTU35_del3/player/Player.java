@@ -31,9 +31,7 @@ public class Player {
         return name;
     }
 
-    public int getBalance() {
-        return balance.getBalance();
-    }
+
 
     public boolean getInJail() {
         return inJail;
@@ -56,31 +54,38 @@ public class Player {
     public void setHasJailCard(boolean hasJailCard) {
         this.hasJailCard = hasJailCard;
     }
+
     public void setHasPlayerCard(boolean hasPlayerCard){
         this.hasPlayerCard = hasPlayerCard;
-    }
-
-    public void setBalance(int amount) {
-        this.balance.setBalance(amount);
     }
 
     public void setInJail(boolean inJail) {
         this.inJail = inJail;
     }
 
-    public void removeFromBalance(int amount) {
-        this.balance.removeFromBalance(amount);
+    public void setHasLost(boolean hasLost) {
+        this.hasLost = hasLost;
     }
 
+    public void setFieldPos(int fieldPos) {
+        this.fieldPos = fieldPos;
+    }
+
+    //for balance
     public void addToBalance(int amount) {
         balance.addToBalance(amount);
     }
 
-    public void setHasLost(boolean hasLost) {
-        this.hasLost = hasLost;
+    public void setBalance(int amount) {
+        this.balance.setBalance(amount);
     }
-    public void setFieldPos(int fieldPos) {
-        this.fieldPos = fieldPos;
+
+    public int getBalance() {
+        return balance.getBalance();
     }
-    public static void setPlayerNumber(int playerNumber) { Player.playerNumber = playerNumber; }
+
+    public void removeFromBalance(int amount) {
+        this.balance.removeFromBalance(amount);
+    }
+
 }

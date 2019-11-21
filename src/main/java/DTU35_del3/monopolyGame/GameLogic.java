@@ -54,6 +54,23 @@ public class GameLogic {
     }
 
     public void turn(Player player) {
+        //if in jail
+        if (player.getInJail()) {
+            if (player.getHasJailCard()) {
+                player.setHasJailCard(false);
+                guiController.showGUIMessage(player.getName() + " uses jail card.");
+            } else {
+                player.removeFromBalance(1);
+                if (player.getBalance() > 0) {
+                    player.setHasLost(true);
+                    return;
+                }
+                guiController.updateBalance(player.getName(),player.getBalance());
+                guiController.showGUIMessage(player.getName() + " pays 1M to get out of jail.");
+            }
+            player.setInJail(false);
+        }
+
         if(player.getHasPlayerCard()){
             playerCard(player);
         }

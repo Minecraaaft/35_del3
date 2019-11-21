@@ -150,20 +150,20 @@ public class GameLogic {
     }
 
     public void landOnStreet(Player player) {
-        int streetRent = board.getStreetRent(player.getFieldPos());
-        int streetPrice = board.getStreetCashPrice(player.getFieldPos());
+        int rent = board.getrent(player.getFieldPos());
+        int price = board.getStreetCashPrice(player.getFieldPos());
 
         //checks if street is owned by another player and if so pays him/her
         for (Player p : playerList) {
             if (board.getOwned(player.getFieldPos()) == p.getName() && p.getName() != player.getName()) {
-                player.removeFromBalance(streetRent);
+                player.removeFromBalance(rent);
                 guiController.updateBalance(player.getName(), player.getBalance());
                 if (player.getBalance() < 0) {
                     player.setHasLost(true);
                     return;
                 }
 
-                p.addToBalance(streetRent);
+                p.addToBalance(rent);
 
                 guiController.updateBalance(p.getName(), p.getBalance());
                 return;
@@ -172,7 +172,7 @@ public class GameLogic {
 
         //checks if the player owns the street if not the player is forced to buy it
         if (board.getOwned(player.getFieldPos()) != player.getName()) {
-            player.removeFromBalance(streetPrice);
+            player.removeFromBalance(price);
             guiController.updateBalance(player.getName(), player.getBalance());
             if (player.getBalance() < 0) {
                 player.setHasLost(true);

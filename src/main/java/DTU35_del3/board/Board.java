@@ -71,17 +71,17 @@ public class Board {
     public void setOwner(String name, int pos) {
         for (Street s : Streets) {
             if (pos == s.getStreetNumber()) {
-                s.setOwned(name);
+                s.setOwnedBy(name);
             }
         }
     }
 
 
-    public String getStreetColor(int streetNumber) {
+    public String getColor(int streetNumber) {
         String color ="";
         for (Street s : Streets) {
             if (streetNumber == s.getStreetNumber()) {
-                color = s.getStreetColor();
+                color = s.getcolor();
             }
         }
         return color;
@@ -91,17 +91,17 @@ public class Board {
         int price=0;
         for (Street s : Streets) {
             if (streetNumber == s.getStreetNumber()) {
-                price = s.getStreetPrice();
+                price = s.getPrice();
             }
         }
         return price;
     }
 
-    public int getStreetRent(int streetNumber) {
+    public int getrent(int streetNumber) {
         int price=0;
         for (Street s : Streets) {
             if (streetNumber == s.getStreetNumber()) {
-                price = s.getStreetRent();
+                price = s.getRent();
             }
         }
         return price;
@@ -111,16 +111,10 @@ public class Board {
         int cash = 404;
         for (Street a: Streets) {
             if (streetName.equals(a.getName())) {
-                cash = a.getStreetPrice();
+                cash = a.getPrice();
             }
         }
         return cash;
     }
 
-    @Override
-    public String toString() {
-        return "Board{" +
-                "Streets=" + Arrays.toString(Streets) +
-                '}';
-    }
 }

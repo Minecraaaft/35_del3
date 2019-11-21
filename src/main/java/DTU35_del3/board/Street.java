@@ -2,68 +2,57 @@ package DTU35_del3.board;
 
 public class Street {
     private String name;
-    private int streetPrice;
+    private int price;
     private int streetNumber;
     private boolean paired;
-    private String streetColor;
-    private int streetRent;
+    private String color;
+    private int rent;
     private String ownedBy = "";
 
-    public Street(String name, String streetColor, int streetPrice, int streetNumber, int streetRent) {
+    public Street(String name, String color, int price, int streetNumber, int rent) {
         this.name = name;
-        this.streetPrice = streetPrice;
+        this.price = price;
         this.streetNumber = streetNumber;
-        this.streetColor = streetColor;
-        this.streetRent = streetRent;
+        this.color = color;
+        this.rent = rent;
     }
-
-    public String getStreetColor() {
-        return streetColor;
+    //getters
+    public String getcolor() {
+        return color;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setPaired(boolean paired) {
-        this.paired = paired;
-        this.streetPrice = this.streetPrice * 2;
+    public int getPrice() {
+        return price;
     }
 
-    public boolean isPaired() {
-        return paired;
+    public int getRent() {
+        return rent;
     }
 
-    public int getStreetRent() {
-        return streetRent;
-    }
-
-    public int getStreetPrice() {
-        return streetPrice;
-    }
-
-    public void setOwned(String ownedBy) {
-        this.ownedBy = ownedBy;
+    public int getStreetNumber() {
+        return streetNumber;
     }
 
     public String getOwned() {
         return this.ownedBy;
     }
 
-    //    public String getMessage() {
-//        return message;
-//    }
-
-    public int getStreetNumber() {
-        return streetNumber;
+    public boolean isPaired() {
+        return paired;
     }
 
-    public java.lang.String toString() {
-        return "Street{" +
-                "name='" + name + '\'' +
-                ", streetPrice=" + streetPrice +
-                ", streetNumber=" + streetNumber +
-                ", streetColor='" + streetColor + '\'' +
-                '}';
+
+    //setters
+    public void setPaired(boolean paired) {
+        this.paired = paired;
+        this.rent = this.price * 2;
+    }
+
+    public void setOwnedBy(String ownedBy) {
+        this.ownedBy = ownedBy;
     }
 }

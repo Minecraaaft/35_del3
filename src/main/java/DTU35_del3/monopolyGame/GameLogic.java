@@ -40,16 +40,39 @@ public class GameLogic {
             playerList[i].setName(names[i]);
         }
 
-        while (true) {
+        boolean gameNotEnded = true;
+        while (gameNotEnded) {
             for (Player p : playerList) {
                 turn(p);
                 if (p.getHasLost()) {
+                    gameNotEnded = false;
                     break;
                 }
             }
         }
 
-        //TO-DO: needs to find winner and losers
+        //find winner and losers
+        Player[] playerRanking = new Player[playerList.length];
+
+        for (Player p : playerList) {
+            int position = 0;
+            for (Player p2 : playerList) {
+                if (p.getBalance() < p2.getBalance()) {
+                    position++;
+                }
+            }
+            playerRanking[position] = p;
+        }
+
+        String lastMsg = "";
+        for (int i = 0; i < playerRanking.length; i++) {
+            lastMsg = lastMsg.concat((i + 1) + ". " + playerList[i].getName() + "      ");
+
+        }
+
+        while (true) {
+            guiController.showGUIMessage(lastMsg);
+        }
 
     }
 
@@ -61,11 +84,11 @@ public class GameLogic {
                 guiController.showGUIMessage(player.getName() + " uses jail card.");
             } else {
                 player.removeFromBalance(1);
-                if (player.getBalance() > 0) {
+                guiController.updateBalance(player.getName(),player.getBalance());
+                if (player.getBalance() < 0) {
                     player.setHasLost(true);
                     return;
                 }
-                guiController.updateBalance(player.getName(),player.getBalance());
                 guiController.showGUIMessage(player.getName() + " pays 1M to get out of jail.");
             }
             player.setInJail(false);
@@ -117,7 +140,7 @@ public class GameLogic {
             case 9:
             case 15:
             case 21:
-                landOnChance(player);
+                //landOnChance(player);
                 break;
             case 18:
                 landOnJail(player);
@@ -134,16 +157,14 @@ public class GameLogic {
         for (Player p : playerList) {
             if (board.getOwned(player.getFieldPos()) == p.getName() && p.getName() != player.getName()) {
                 player.removeFromBalance(streetRent);
-
-                if (player.getBalance() > 0) {
+                guiController.updateBalance(player.getName(), player.getBalance());
+                if (player.getBalance() < 0) {
                     player.setHasLost(true);
                     return;
                 }
 
                 p.addToBalance(streetRent);
 
-
-                guiController.updateBalance(player.getName(), player.getBalance());
                 guiController.updateBalance(p.getName(), p.getBalance());
                 return;
             }
@@ -152,11 +173,12 @@ public class GameLogic {
         //checks if the player owns the street if not the player is forced to buy it
         if (board.getOwned(player.getFieldPos()) != player.getName()) {
             player.removeFromBalance(streetPrice);
-            if (player.getBalance() > 0) {
+            guiController.updateBalance(player.getName(), player.getBalance());
+            if (player.getBalance() < 0) {
                 player.setHasLost(true);
                 return;
             }
-            guiController.updateBalance(player.getName(), player.getBalance());
+
             board.setOwner(player.getName(), player.getFieldPos());
             guiController.buyStreet(player.getName(), player.getFieldPos());
             board.checkForPairs();
@@ -179,6 +201,8 @@ public class GameLogic {
             case 1:
                 guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 0);
                 guiController.displayChanceCard("Ryk frem til start. Modtag 2M");
+                player.addToBalance(2);
+                guiController.updateBalance(player.getName(), player.getBalance());
                 break;
             //Ryk op til 5 felter
             case 2:

@@ -33,6 +33,7 @@ general
 Det er
 's tur
 Kast terning
+er blevet fængslet!
 
 chancekort
 Giv dette kort til racerbilen og tag et chancekort mere.

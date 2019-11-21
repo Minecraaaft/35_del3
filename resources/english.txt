@@ -33,6 +33,7 @@ general
 It is
 's turn
 Roll dice
+been jailed!
 
 chancekort
 Give this card to the racecar, and take another chance card.

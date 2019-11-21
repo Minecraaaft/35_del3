@@ -7,6 +7,8 @@ import DTU35_del3.player.Player;
 
 import java.util.Random;
 
+import static DTU35_del3.Message.getMessage;
+
 public class GameLogic {
     private Player[] playerList;
     private DiceCup diceCup = new DiceCup();
@@ -41,8 +43,13 @@ public class GameLogic {
         while (true) {
             for (Player p : playerList) {
                 turn(p);
+                if (p.getHasLost()) {
+                    break;
+                }
             }
         }
+
+        //TO-DO: needs to find winner and losers
 
     }
 
@@ -111,9 +118,13 @@ public class GameLogic {
             if (board.getOwned(player.getFieldPos()) == p.getName() && p.getName() != player.getName()) {
                 player.removeFromBalance(streetRent);
 
-                if (!player.getHasLost()) {
-                    p.addToBalance(streetRent);
+                if (player.getBalance() > 0) {
+                    player.setHasLost(true);
+                    return;
                 }
+
+                p.addToBalance(streetRent);
+
 
                 guiController.updateBalance(player.getName(), player.getBalance());
                 guiController.updateBalance(p.getName(), p.getBalance());
@@ -124,11 +135,15 @@ public class GameLogic {
         //checks if the player owns the street if not the player is forced to buy it
         if (board.getOwned(player.getFieldPos()) != player.getName()) {
             player.removeFromBalance(streetPrice);
+            if (player.getBalance() > 0) {
+                player.setHasLost(true);
+                return;
+            }
             guiController.updateBalance(player.getName(), player.getBalance());
             board.setOwner(player.getName(), player.getFieldPos());
             guiController.buyStreet(player.getName(), player.getFieldPos());
             board.checkForPairs();
-            System.out.println("købt");
+
         }
 
     }
@@ -314,7 +329,10 @@ public class GameLogic {
 
 
     public void landOnJail(Player player) {
-
+        guiController.moveToJail(player.getName(), player.getFieldPos());
+        player.setFieldPos(6);
+        player.setInJail(true);
+        guiController.showGUIMessage(player.getName() + " " + getMessage("general", 4));
     }
     public int[] randomChanceCard() {
         //Creates a 20 long array with random numbers from 1 to 20. called "chanceArr"

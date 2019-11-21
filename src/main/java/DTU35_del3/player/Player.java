@@ -76,7 +76,7 @@ public class Player {
         balance.addToBalance(amount);
     }
 
-    public void setHasWon(boolean hasLost) {
+    public void setHasLost(boolean hasLost) {
         this.hasLost = hasLost;
     }
     public void setFieldPos(int fieldPos) {

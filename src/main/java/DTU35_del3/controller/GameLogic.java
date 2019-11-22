@@ -1,4 +1,4 @@
-package DTU35_del3.monopolyGame;
+package DTU35_del3.controller;
 
 import DTU35_del3.Message;
 import DTU35_del3.board.Board;

@@ -1,14 +1,9 @@
-package DTU35_del3.monopolyGame;
+package DTU35_del3.controller;
 
-import DTU35_del3.Message;
-import DTU35_del3.board.Board;
-import DTU35_del3.player.Player;
 import gui_fields.*;
 import gui_main.GUI;
 
-import javax.swing.*;
 import java.awt.*;
-import java.util.Random;
 
 import static DTU35_del3.Message.getMessage;
 

@@ -17,10 +17,11 @@ public class GameLogic {
     private int[] chanceCards;
     private int index = 0;
 
-    public void Start() {
+    public void start() {
         String language = guiController.requestOption("Choose language", "danish", "english");
         new Message(language);
         board = new Board();
+
         //startMenu() returns a string array of names
         String[] names = guiController.startMenu();
         chanceCards = randomChanceCard();
@@ -99,7 +100,7 @@ public class GameLogic {
         }
         else {
             diceCup.rollDice();
-            guiController.DiceMenu(diceCup.getFaceValueSum(), player.getName());
+            guiController.diceMenu(diceCup.getFaceValueSum(), player.getName());
             int currentPos = player.getFieldPos();
 
             player.setFieldPos((player.getFieldPos() + diceCup.getFaceValueSum()));

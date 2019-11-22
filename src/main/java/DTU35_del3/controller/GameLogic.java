@@ -67,7 +67,7 @@ public class GameLogic {
 
         String lastMsg = "";
         for (int i = 0; i < playerRanking.length; i++) {
-            lastMsg = lastMsg.concat((i + 1) + ". " + playerList[i].getName() + "      ");
+            lastMsg = lastMsg.concat((i + 1) + ". " + playerRanking[i].getName() + "      ");
 
         }
 

@@ -1,8 +1,10 @@
 package test;
 
 public class DieStubClass {
+    public DieStubClass(){
 
-    public class rollDiceTest{
-
+    }
+    public int rollDiceTest(){
+        return 5;
     }
 }

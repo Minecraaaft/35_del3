@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class DiceCupTest {
 
-    DiceCup myTestDicecup = new DiceCup();
+    DiceCup myTestDicecup = new DiceCup(new DieStubClass);
 
 
     //JUnit test of rollDice and rollDiceOutcome

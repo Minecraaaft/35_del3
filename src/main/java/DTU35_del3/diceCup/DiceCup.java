@@ -11,6 +11,10 @@ public class DiceCup {
     public DiceCup() {
     }
 
+    public DiceCup(Die testDie) {
+        this.firstDie = testDie;
+    }
+
     //rollDice method
     public int rollDice() {
         faceValueArray[0] = firstDie.roll();

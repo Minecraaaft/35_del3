@@ -13,10 +13,9 @@ public class DiceCupTest {
     //JUnit test of rollDice and rollDiceOutcome
     @Test
     public void rollDice() {
-        for (int i = 0; i < 10000; i++) {
-            assertEquals(3.5, myTestDicecup.rollDice(), 2.5);
+        assertEquals(5, myTestDicecup.rollDice() );
         }
-    }
+
 
     @Test
     public void rollDiceOutcome() {

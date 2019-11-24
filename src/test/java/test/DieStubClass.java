@@ -1,7 +1,10 @@
 package test;
 
-public class DieStubClass {
+import DTU35_del3.diceCup.Die;
+
+public class DieStubClass extends Die {
     public DieStubClass(){
+        super(6);
 
     }
     public int rollDiceTest(){

@@ -46,12 +46,12 @@ public class DiceCupTest {
 
             }
         }
-        assertEquals(1/36.*36000, arr[0], 1/6.*36000);
-        assertEquals(2/36.*36000, arr[1], 1/6.*36000);
-        assertEquals(3/36.*36000, arr[2], 1/6.*36000);
-        assertEquals(4/36.*36000, arr[3], 1/6.*36000);
-        assertEquals(5/36.*36000, arr[4], 1/6.*36000);
-        assertEquals(6/36.*36000, arr[5], 1/6.*36000);
+        assertEquals(0, arr[0]);
+        assertEquals(0, arr[1]);
+        assertEquals(0, arr[2]);
+        assertEquals(0, arr[3]);
+        assertEquals(36000, arr[4]);
+        assertEquals(0, arr[5]);
 
     }
 

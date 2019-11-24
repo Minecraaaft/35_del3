@@ -7,7 +7,8 @@ public class DieStubClass extends Die {
         super(6);
 
     }
-    public int rollDiceTest(){
+    @Override
+    public int roll(){
         return 5;
     }
 }

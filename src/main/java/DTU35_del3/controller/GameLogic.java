@@ -279,8 +279,12 @@ public class GameLogic {
                 break;
             //Ryk frem til orange eller grøn
             case 7:
+
                 field = guiController.requestOption("Hvilken farve vil du rykke frem til?","Orange","Grøn");
                 if(field.equals("Orange")) {
+                    if (player.getFieldPos() > 11){
+                        player.addToBalance(2);
+                    }
                     field = guiController.requestOption("Hvilket orange felt vil du rykke til","SWIMMINGPOOLEN","SKATERPARKEN");
                     if (field.equals("SWIMMINGPOOLEN")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 11);
@@ -293,6 +297,9 @@ public class GameLogic {
                     }
                 }
                 else if(field.equals("Grøn")){
+                    if (player.getFieldPos() > 20){
+                        player.addToBalance(2);
+                    }
                     field = guiController.requestOption("Hvilket grønt felt vil du rykke til","ZOO","BOWLINGHALLEN");
                     if (field.equals("ZOO")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 20);
@@ -310,6 +317,9 @@ public class GameLogic {
             case 8:
                 field = guiController.requestOption("Hvilket Lyseblåt felt vil du rykke til","ISKIOSKEN","SLIKBUTIKKEN");
                 if(field.equals("ISKIOSKEN")){
+                    if (player.getFieldPos() > 5){
+                        player.addToBalance(2);
+                    }
                     guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 5);
                     player.setFieldPos(5);
                     landOn(player);
@@ -365,6 +375,9 @@ public class GameLogic {
             case 14:
                 field = guiController.requestOption("Hvilken farve vil du rykke frem til?","Pink","Mørkeblåt");
                 if(field.equals("Pink")) {
+                    if (player.getFieldPos() > 8){
+                        player.addToBalance(2);
+                    }
                     field = guiController.requestOption("Hvilket pink felt vil du rykke til","BIBLIOTEKET","MUSEET");
                     if (field.equals("BIBLIOTEKET")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 8);
@@ -377,6 +390,7 @@ public class GameLogic {
                     }
                 }
                 else if(field.equals("Mørkeblåt")){
+
                     field = guiController.requestOption("Hvilket grønt felt vil du rykke til","STRANDPROMENADEN","VANDLANDET");
                     if (field.equals("STRANDPROMENADEN")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 23);
@@ -400,6 +414,9 @@ public class GameLogic {
                 break;
             //ryk frem til et rødt felt
             case 16:
+                if (player.getFieldPos() > 14){
+                    player.addToBalance(2);
+                }
                 field = guiController.requestOption("Hvilket Rødt felt vil du rykke til","BIOGRAFEN","SPILLEHALLEN");
                 if(field.equals("BIOGRAFEN")){
                     guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 14);
@@ -415,6 +432,9 @@ public class GameLogic {
                 break;
             //Ryk frem til skaterparken
             case 17:
+                if (player.getFieldPos() > 10){
+                    player.addToBalance(2);
+                }
                 guiController.showGUIMessage("Du flyttes til SKATERPARKEN");
                 guiController.movePlayer(player.getName(), player.getBalance(),player.getFieldPos(),10);
                 player.setFieldPos(10);
@@ -425,6 +445,9 @@ public class GameLogic {
             case 18:
                 field = guiController.requestOption("Hvilken farve vil du rykke frem til?","Lyseblåt","Rødt");
                 if(field.equals("Lyseblåt")) {
+                    if (player.getFieldPos() > 5){
+                        player.addToBalance(2);
+                    }
                     field = guiController.requestOption("Hvilket pink felt vil du rykke til","ISKIOSKEN","SLIKBUTIKKEN");
                     if (field.equals("ISKIOSKEN")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 5);
@@ -437,6 +460,9 @@ public class GameLogic {
                     }
                 }
                 else if(field.equals("Rødt")){
+                    if (player.getFieldPos() > 14){
+                        player.addToBalance(2);
+                    }
                     field = guiController.requestOption("Hvilket Rødt felt vil du rykke til","BIOGRAFEN","SPILLEHALLEN");
                     if(field.equals("BIOGRAFEN")){
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 14);
@@ -456,6 +482,9 @@ public class GameLogic {
             case 19:
                 field = guiController.requestOption("Hvilken farve vil du rykke frem til?","Gult","Brunt");
                 if(field.equals("Gult")) {
+                    if (player.getFieldPos() > 17){
+                        player.addToBalance(2);
+                    }
                     field = guiController.requestOption("Hvilket pink felt vil du rykke til","LEGETØJSBUTIKKEN","DYREHANDLEN");
                     if (field.equals("LEGETØJSBUTIKKEN")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 16);
@@ -468,6 +497,9 @@ public class GameLogic {
                     }
                 }
                 else if(field.equals("Brunt")){
+                    if (player.getFieldPos() > 2){
+                        player.addToBalance(2);
+                    }
                     field = guiController.requestOption("Hvilket Rødt felt vil du rykke til","PIZZARIAET","BURGERBAREN");
                     if(field.equals("BURGERBAREN")){
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 1);

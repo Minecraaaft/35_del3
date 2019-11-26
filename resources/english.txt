@@ -35,6 +35,8 @@ It is
 Roll dice
 has been jailed!
 
+
+
 chancekort
 Give this card to the racecar, and take another chance card.
 Racecar: On your next turn, you have to race to any available field and buy it.
@@ -42,7 +44,7 @@ If there aren't any available fields, then you have to buy one from another play
 Move to start. Receive 2M.
 Move upto 5 fields forward.
 Move to an orange field. If the field is available, you get it for free. Else you have to pay the rent to the owner.
-Move a field forward or else pull another chance card.
+Move a field forward or else draw another chance card.
 Give this card to the car, and take another chance card.
 Car: On your next turn, you have to race to any available field and buy it.
 If there aren't any available fields, then you have to buy one from another player.
@@ -64,3 +66,23 @@ Move to the red field. If the field is available, you get it for free. Or else y
 Move to the skatepark. If it is available, you get it for free. Or else you have to pay rent to the owner.
 Move to a cyan or red field. If the field is available, you get it for free. Else you have to pay the rent to the owner.
 Move to a brown or yellow field. If the field is available, you get it for free. Else you have to pay the rent to the owner.
+Choose which field you would like to move to.
+Choose which color you would like to move to.
+Move 1 field forward.
+Draw another chance card.
+
+
+
+
+
+
+
+color
+Orange
+DarkBlue
+Yellow
+Red
+LightBlue
+Pink
+Green
+Brown

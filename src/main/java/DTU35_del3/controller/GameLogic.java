@@ -4,6 +4,7 @@ import DTU35_del3.Message;
 import DTU35_del3.board.Board;
 import DTU35_del3.diceCup.DiceCup;
 import DTU35_del3.player.Player;
+import com.sun.xml.internal.bind.v2.TODO;
 
 import java.util.Random;
 
@@ -85,7 +86,7 @@ public class GameLogic {
                 guiController.showGUIMessage(player.getName() + " uses jail card.");
             } else {
                 player.removeFromBalance(1);
-                guiController.updateBalance(player.getName(),player.getBalance());
+                guiController.updateBalance(player.getName(), player.getBalance());
                 if (player.getBalance() < 0) {
                     player.setHasLost(true);
                     return;
@@ -95,24 +96,20 @@ public class GameLogic {
             player.setInJail(false);
         }
 
-        if(player.getHasPlayerCard()){
-            playerCard(player);
-        }
-        else {
-            diceCup.rollDice();
-            guiController.diceMenu(diceCup.getFaceValueSum(), player.getName());
-            int currentPos = player.getFieldPos();
 
-            player.setFieldPos((player.getFieldPos() + diceCup.getFaceValueSum()));
-            if (player.getFieldPos() > 23) {
-                player.setFieldPos(player.getFieldPos() - 24);
-                player.addToBalance(2);
-            }
+        diceCup.rollDice();
+        guiController.diceMenu(diceCup.getFaceValueSum(), player.getName());
+        int currentPos = player.getFieldPos();
 
-            guiController.movePlayer(player.getName(), player.getBalance(), currentPos, player.getFieldPos());
+        player.setFieldPos((player.getFieldPos() + diceCup.getFaceValueSum()));
+        if (player.getFieldPos() > 23) {
+            player.setFieldPos(player.getFieldPos() - 24);
+            player.addToBalance(2);
         }
+
+        guiController.movePlayer(player.getName(), player.getBalance(), currentPos, player.getFieldPos());
+
         landOn(player);
-
     }
 
     public void landOn(Player player) {
@@ -188,7 +185,7 @@ public class GameLogic {
 
     }
 
-    int cardNumber = 19;
+    int cardNumber = 17;
     public void landOnChance(Player player) {
 
         //int cardNumber = chanceCards[index];
@@ -205,13 +202,13 @@ public class GameLogic {
             //Ryk frem til start. Modtag 2M
             case 1:
                 guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 0);
-                guiController.displayChanceCard("Ryk frem til start. Modtag 2M");
+                guiController.displayChanceCard(getMessage("chancekort",4));
                 player.addToBalance(2);
                 guiController.updateBalance(player.getName(), player.getBalance());
                 break;
             //Ryk op til 5 felter
             case 2:
-                int steps = guiController.requestInteger("Vælg hvor mange felter du vil rykke frem. max 5", 1,5);
+                int steps = guiController.requestInteger(getMessage("chancekort",5), 1,5);
                 int placementAfter = player.getFieldPos() + steps;
                 if (placementAfter > 23) {
                     placementAfter = placementAfter - 24;
@@ -224,7 +221,7 @@ public class GameLogic {
                 break;
             //gratis felt (orange)
             case 3:
-                field = guiController.requestOption("Hvilket orange felt vil du rykke til","SWIMMINGPOOLEN","SKATERPARKEN");
+                field = guiController.requestOption(getMessage("chancekort",29),"SWIMMINGPOOLEN","SKATERPARKEN");
                 //if player passes start
                 if (player.getFieldPos() == 15 || player.getFieldPos() == 21) {
                     player.addToBalance(2);
@@ -244,14 +241,14 @@ public class GameLogic {
                 break;
             //Ryk 1 frem eller tag et chance kort mere;
             case 4:
-                field = guiController.requestOption("Vil du rykke 1 felt frem eller tage et chance kort mere","Ryk 1 felt frem","Tag et chance kort mere");
-                if(field.equals("Ryk 1 felt frem")){
+                field = guiController.requestOption(getMessage("chancekort",5),getMessage("chancekort",31),getMessage("chancekort",32));
+                if(field.equals(getMessage("chancekort",31))){
                     guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), player.getFieldPos() + 1);
                     player.setFieldPos(player.getFieldPos() + 1);
                     landOn(player);
 
                 }
-                else if (field.equals("Tag et chance kort mere")) {
+                else if (field.equals(getMessage("chancekort",32))) {
                     index++;
                     if(index == 20){
                         index = 0;}
@@ -272,7 +269,7 @@ public class GameLogic {
                 break;
             //Spist for meget slik
             case 6:
-                guiController.showGUIMessage("Du har spist for meget slik: BETAL 2 TIL BANKEN");
+                guiController.showGUIMessage(getMessage("chancekort",11));
                 guiController.updateBalance(player.getName(),player.getBalance()-2);
                 player.setBalance(player.getBalance() -2 );
 
@@ -280,12 +277,12 @@ public class GameLogic {
             //Ryk frem til orange eller grøn
             case 7:
 
-                field = guiController.requestOption("Hvilken farve vil du rykke frem til?","Orange","Grøn");
-                if(field.equals("Orange")) {
+                field = guiController.requestOption(getMessage("chancekort",30),getMessage("color",1),getMessage("color",7));
+                if(field.equals(getMessage("color",1))) {
                     if (player.getFieldPos() > 11){
                         player.addToBalance(2);
                     }
-                    field = guiController.requestOption("Hvilket orange felt vil du rykke til","SWIMMINGPOOLEN","SKATERPARKEN");
+                    field = guiController.requestOption(getMessage("chancekort",29),"SWIMMINGPOOLEN","SKATERPARKEN");
                     if (field.equals("SWIMMINGPOOLEN")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 11);
                         player.setFieldPos(11);
@@ -296,11 +293,11 @@ public class GameLogic {
                         landOn(player);
                     }
                 }
-                else if(field.equals("Grøn")){
+                else if(field.equals(getMessage("chancekort",7))){
                     if (player.getFieldPos() > 20){
                         player.addToBalance(2);
                     }
-                    field = guiController.requestOption("Hvilket grønt felt vil du rykke til","ZOO","BOWLINGHALLEN");
+                    field = guiController.requestOption(getMessage("chancekort",29),"ZOO","BOWLINGHALLEN");
                     if (field.equals("ZOO")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 20);
                         player.setFieldPos(20);
@@ -315,7 +312,7 @@ public class GameLogic {
                 break;
             //Ryk frem til lyseblåt
             case 8:
-                field = guiController.requestOption("Hvilket Lyseblåt felt vil du rykke til","ISKIOSKEN","SLIKBUTIKKEN");
+                field = guiController.requestOption(getMessage("chancekort",29),"ISKIOSKEN","SLIKBUTIKKEN");
                 if(field.equals("ISKIOSKEN")){
                     if (player.getFieldPos() > 5){
                         player.addToBalance(2);
@@ -333,12 +330,12 @@ public class GameLogic {
                 break;
             //Du løslades uden omkostninger
             case 9:
-                guiController.showGUIMessage("Du har fået et gratis \"løsladelseskort\" til næste gang du kommer i fængsel!" );
+                guiController.showGUIMessage(getMessage("chancekort",14));
                 player.setHasJailCard(true);
                 break;
             //Ryk frem til strandpromenaden
             case 10:
-                guiController.showGUIMessage("Du flyttes til Strandpromenaden");
+                guiController.showGUIMessage(getMessage("chancekort",15));
                 guiController.movePlayer(player.getName(), player.getBalance(),player.getFieldPos(),23);
                 player.setFieldPos(23);
                 landOn(player);
@@ -362,7 +359,7 @@ public class GameLogic {
                 break;
             //Fødselsdags kort
             case 13:
-                guiController.showGUIMessage("Det er din fødselsdag og alle giver dig 1 M ");
+                guiController.showGUIMessage(getMessage("chancekort",22));
                 for (int i = 0; i < playerList.length ; i++) {
                     guiController.updateBalance(playerList[i].getName(), playerList[i].getBalance() -1);
                     playerList[i].setBalance(playerList[i].getBalance() -1);
@@ -373,12 +370,12 @@ public class GameLogic {
                 break;
             //Ryk frem til pink eller mørkeblåt felt
             case 14:
-                field = guiController.requestOption("Hvilken farve vil du rykke frem til?","Pink","Mørkeblåt");
-                if(field.equals("Pink")) {
+                field = guiController.requestOption(getMessage("chancekort",30),getMessage("color",2),getMessage("color",6));
+                if(field.equals(getMessage("color",6))) {
                     if (player.getFieldPos() > 8){
                         player.addToBalance(2);
                     }
-                    field = guiController.requestOption("Hvilket pink felt vil du rykke til","BIBLIOTEKET","MUSEET");
+                    field = guiController.requestOption(getMessage("chancekort",29),"BIBLIOTEKET","MUSEET");
                     if (field.equals("BIBLIOTEKET")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 8);
                         player.setFieldPos(8);
@@ -389,9 +386,9 @@ public class GameLogic {
                         landOn(player);
                     }
                 }
-                else if(field.equals("Mørkeblåt")){
+                else if(field.equals(getMessage("color",2))){
 
-                    field = guiController.requestOption("Hvilket grønt felt vil du rykke til","STRANDPROMENADEN","VANDLANDET");
+                    field = guiController.requestOption(getMessage("chancekort",29),"STRANDPROMENADEN","VANDLANDET");
                     if (field.equals("STRANDPROMENADEN")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 23);
                         player.setFieldPos(23);
@@ -407,7 +404,7 @@ public class GameLogic {
                 break;
             //Lavet alle dine lektier
             case 15:
-                guiController.showGUIMessage("Du har lavet alle dine lektier og modtager derfor 2 M");
+                guiController.showGUIMessage(getMessage("chancekort",24));
                 guiController.updateBalance(player.getName(),player.getBalance()+2);
                 player.setBalance(player.getBalance() +2 );
 
@@ -417,7 +414,7 @@ public class GameLogic {
                 if (player.getFieldPos() > 14){
                     player.addToBalance(2);
                 }
-                field = guiController.requestOption("Hvilket Rødt felt vil du rykke til","BIOGRAFEN","SPILLEHALLEN");
+                field = guiController.requestOption(getMessage("chancekort",29),"BIOGRAFEN","SPILLEHALLEN");
                 if(field.equals("BIOGRAFEN")){
                     guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 14);
                     player.setFieldPos(14);
@@ -435,7 +432,7 @@ public class GameLogic {
                 if (player.getFieldPos() > 10){
                     player.addToBalance(2);
                 }
-                guiController.showGUIMessage("Du flyttes til SKATERPARKEN");
+                guiController.showGUIMessage(getMessage("chancekort",26));
                 guiController.movePlayer(player.getName(), player.getBalance(),player.getFieldPos(),10);
                 player.setFieldPos(10);
                 landOn(player);
@@ -443,12 +440,12 @@ public class GameLogic {
                 break;
             //ryk frem til et lyseblåt eller rødt felt
             case 18:
-                field = guiController.requestOption("Hvilken farve vil du rykke frem til?","Lyseblåt","Rødt");
-                if(field.equals("Lyseblåt")) {
+                field = guiController.requestOption(getMessage("chancekort",30),getMessage("color",5),getMessage("color",4));
+                if(field.equals(getMessage("color",5))) {
                     if (player.getFieldPos() > 5){
                         player.addToBalance(2);
                     }
-                    field = guiController.requestOption("Hvilket pink felt vil du rykke til","ISKIOSKEN","SLIKBUTIKKEN");
+                    field = guiController.requestOption(getMessage("chancekort",29),"ISKIOSKEN","SLIKBUTIKKEN");
                     if (field.equals("ISKIOSKEN")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 5);
                         player.setFieldPos(5);
@@ -459,11 +456,11 @@ public class GameLogic {
                         landOn(player);
                     }
                 }
-                else if(field.equals("Rødt")){
+                else if(field.equals(getMessage("color",4))){
                     if (player.getFieldPos() > 14){
                         player.addToBalance(2);
                     }
-                    field = guiController.requestOption("Hvilket Rødt felt vil du rykke til","BIOGRAFEN","SPILLEHALLEN");
+                    field = guiController.requestOption(getMessage("chancekort",29),"BIOGRAFEN","SPILLEHALLEN");
                     if(field.equals("BIOGRAFEN")){
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 14);
                         player.setFieldPos(14);
@@ -480,12 +477,12 @@ public class GameLogic {
                 break;
             //ryk frem til et brunt eller gult felt
             case 19:
-                field = guiController.requestOption("Hvilken farve vil du rykke frem til?","Gult","Brunt");
-                if(field.equals("Gult")) {
+                field = guiController.requestOption(getMessage("chancekort",30),getMessage("color",3),getMessage("color",8));
+                if(field.equals(getMessage("color",3))) {
                     if (player.getFieldPos() > 17){
                         player.addToBalance(2);
                     }
-                    field = guiController.requestOption("Hvilket pink felt vil du rykke til","LEGETØJSBUTIKKEN","DYREHANDLEN");
+                    field = guiController.requestOption(getMessage("chancekort",29),"LEGETØJSBUTIKKEN","DYREHANDLEN");
                     if (field.equals("LEGETØJSBUTIKKEN")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 16);
                         player.setFieldPos(5);
@@ -496,11 +493,11 @@ public class GameLogic {
                         landOn(player);
                     }
                 }
-                else if(field.equals("Brunt")){
+                else if(field.equals(getMessage("color",8))){
                     if (player.getFieldPos() > 2){
                         player.addToBalance(2);
                     }
-                    field = guiController.requestOption("Hvilket Rødt felt vil du rykke til","PIZZARIAET","BURGERBAREN");
+                    field = guiController.requestOption(getMessage("chancekort",29),"PIZZARIAET","BURGERBAREN");
                     if(field.equals("BURGERBAREN")){
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 1);
                         player.setFieldPos(1);
@@ -555,109 +552,111 @@ public class GameLogic {
         }
         return chanceArr;
     }
-    public void playerCard(Player player){
-        String[] streets = {"Burgerbaren","Pizzeriaet","Slikbutikken","Iskiosken","Museet","Biblioteket"
-                ,"Skaterparken","Swimmingpoolen","Spillehallen","Biografen","Legetøjsbutikken","Dyrehandlen","Bowlinghallen","Zoo","Vandlandet"
-                ,"Strandpromenaden"};
-        int counter = 0;
-        int counter2 = 0;
-        int counter3 = 0;
-        String field;
-        for (int i = 0; i < 16 ; i++) {
-            if (board.getOwned(i).equals("") );
-            counter++;
-        }
-        String[] playerChoices = new String[counter];
-        for (int i = 0; i < 16; i++) {
-            if(board.getOwned(i).equals("")){
-                playerChoices[counter2] = streets[i];
-                counter2++;
-            }
-        }
-        field = guiController.requestField2("vælg hvilket felt du vil rykke til", playerChoices);
-        if(field.equals(streets[0])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 1);
-            player.setFieldPos( 1);
-            landOn(player);
-        }
-        else if (field.equals(streets[1])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 2);
-            player.setFieldPos( 2);
-            landOn(player);
-        }
-        else if (field.equals(streets[2])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 4);
-            player.setFieldPos( 4);
-            landOn(player);
-        }
-        else if (field.equals(streets[3])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 5);
-            player.setFieldPos( 5);
-            landOn(player);
-        }
-        else if (field.equals(streets[4])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 7);
-            player.setFieldPos( 7);
-            landOn(player);
-        }
-        else if (field.equals(streets[5])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 8);
-            player.setFieldPos( 8);
-            landOn(player);
-        }
-        else if (field.equals(streets[6])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 10);
-            player.setFieldPos( 10);
-            landOn(player);
-        }
-        else if (field.equals(streets[7])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 11);
-            player.setFieldPos( 11);
-            landOn(player);
-        }
-        else if (field.equals(streets[8])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 13);
-            player.setFieldPos( 13);
-            landOn(player);
-        }
-        else if (field.equals(streets[9])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 14);
-            player.setFieldPos( 14);
-            landOn(player);
-        }
-        else if (field.equals(streets[10])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 16);
-            player.setFieldPos( 16);
-            landOn(player);
-        }
-        else if (field.equals(streets[11])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 17);
-            player.setFieldPos( 17);
-            landOn(player);
-        }
-        else if (field.equals(streets[12])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 19);
-            player.setFieldPos( 19);
-            landOn(player);
-        }
-        else if (field.equals(streets[13])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 20);
-            player.setFieldPos( 20);
-            landOn(player);
-        }
-        else if (field.equals(streets[14])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 22);
-            player.setFieldPos( 22);
-            landOn(player);
-        }
-        else if (field.equals(streets[15])){
-            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 23);
-            player.setFieldPos( 23);
-            landOn(player);
-        }
 
-
-        player.setHasPlayerCard(false);
+    //TODO fix playerspecefic cards
+//    public void playerCard(Player player){
+//        String[] streets = {"Burgerbaren","Pizzeriaet","Slikbutikken","Iskiosken","Museet","Biblioteket"
+//                ,"Skaterparken","Swimmingpoolen","Spillehallen","Biografen","Legetøjsbutikken","Dyrehandlen","Bowlinghallen","Zoo","Vandlandet"
+//                ,"Strandpromenaden"};
+//        int counter = 0;
+//        int counter2 = 0;
+//        int counter3 = 0;
+//        String field;
+//        for (int i = 0; i < 16 ; i++) {
+//            if (board.getOwned(i).equals("") );
+//            counter++;
+//        }
+//        String[] playerChoices = new String[counter];
+//        for (int i = 0; i < 16; i++) {
+//            if(board.getOwned(i).equals("")){
+//                playerChoices[counter2] = streets[i];
+//                counter2++;
+//            }
+//        }
+//        field = guiController.requestField2(getMessage("chancekort",29), playerChoices);
+//        if(field.equals(streets[0])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 1);
+//            player.setFieldPos( 1);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[1])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 2);
+//            player.setFieldPos( 2);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[2])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 4);
+//            player.setFieldPos( 4);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[3])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 5);
+//            player.setFieldPos( 5);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[4])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 7);
+//            player.setFieldPos( 7);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[5])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 8);
+//            player.setFieldPos( 8);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[6])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 10);
+//            player.setFieldPos( 10);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[7])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 11);
+//            player.setFieldPos( 11);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[8])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 13);
+//            player.setFieldPos( 13);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[9])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 14);
+//            player.setFieldPos( 14);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[10])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 16);
+//            player.setFieldPos( 16);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[11])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 17);
+//            player.setFieldPos( 17);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[12])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 19);
+//            player.setFieldPos( 19);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[13])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 20);
+//            player.setFieldPos( 20);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[14])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 22);
+//            player.setFieldPos( 22);
+//            landOn(player);
+//        }
+//        else if (field.equals(streets[15])){
+//            guiController.movePlayer(player.getName(),player.getBalance(),player.getFieldPos(), 23);
+//            player.setFieldPos( 23);
+//            landOn(player);
+//        }
+//
+//
+//        player.setHasPlayerCard(false);
 
 //        Hvad der stadig mangler list:
 //        hvis alle felter er optaget
@@ -669,7 +668,5 @@ public class GameLogic {
 //
 //
 //
-    }
-
 
 }

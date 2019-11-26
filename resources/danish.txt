@@ -35,6 +35,8 @@ Det er
 Kast terning
 er blevet fængslet!
 
+
+
 chancekort
 Giv dette kort til racerbilen og tag et chancekort mere.
 Racerbil: På dit næste tur skal du drøne frem til et hvilket som helst ledigt felt og købe det.
@@ -64,3 +66,23 @@ Ryk frem til et rødt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal 
 Ryk frem til Skaterparken for at lave det perfekte grind! Hvis ingen ejer den, får du den GRATIS! Ellers skal du BETALE leje til ejeren.
 Ryk frem til et lyseblåt eller rødt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
 Ryk frem til et brunt eller gult felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
+Vælg hvilket felt du vil rykke til.
+Vælg hvilken farve du vil rykke til.
+Ryk 1 felt frem.
+Træk et chance kort mere.
+
+
+
+
+
+
+
+color
+Orange
+Mørkeblå
+Gul
+Rød
+Lyseblå
+Pink
+Grøn
+Brun

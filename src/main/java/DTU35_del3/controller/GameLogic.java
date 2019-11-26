@@ -185,10 +185,10 @@ public class GameLogic {
 
     }
 
-    int cardNumber = 17;
+  //  int cardNumber = 17;
     public void landOnChance(Player player) {
 
-        //int cardNumber = chanceCards[index];
+        int cardNumber = chanceCards[index];
         String field;
 
         switch (cardNumber) {

@@ -187,7 +187,7 @@ public class GameLogic {
 
     }
 
-  //  int cardNumber = 17;
+   //int cardNumber = 7;
     public void landOnChance(Player player) {
 
         int cardNumber = chanceCards[index];
@@ -243,7 +243,7 @@ public class GameLogic {
                 break;
             //Ryk 1 frem eller tag et chance kort mere;
             case 4:
-                field = guiController.requestOption(getMessage("chancekort",5),getMessage("chancekort",31),getMessage("chancekort",32));
+                field = guiController.requestOption(getMessage("chancekort",7),getMessage("chancekort",31),getMessage("chancekort",32));
                 if(field.equals(getMessage("chancekort",31))){
                     guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), player.getFieldPos() + 1);
                     player.setFieldPos(player.getFieldPos() + 1);

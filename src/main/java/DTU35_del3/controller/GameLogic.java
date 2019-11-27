@@ -295,7 +295,7 @@ public class GameLogic {
                         landOn(player);
                     }
                 }
-                else if(field.equals(getMessage("chancekort",7))){
+                else if(field.equals(getMessage("color",7))){
                     if (player.getFieldPos() > 20){
                         player.addToBalance(2);
                     }

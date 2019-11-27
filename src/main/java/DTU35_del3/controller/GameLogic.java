@@ -101,10 +101,12 @@ public class GameLogic {
         guiController.diceMenu(diceCup.getFaceValueSum(), player.getName());
         int currentPos = player.getFieldPos();
 
-        player.setFieldPos((player.getFieldPos() + diceCup.getFaceValueSum()));
-        if (player.getFieldPos() > 23) {
-            player.setFieldPos(player.getFieldPos() - 24);
+        if (player.getFieldPosfoer()+diceCup.getFaceValueSum() > 23) {
+            player.setFieldPos(player.getFieldPosfoer()+diceCup.getFaceValueSum() - 24);
             player.addToBalance(2);
+        }
+        else{
+            player.setFieldPos((player.getFieldPosfoer() + diceCup.getFaceValueSum()));
         }
 
         guiController.movePlayer(player.getName(), player.getBalance(), currentPos, player.getFieldPos());

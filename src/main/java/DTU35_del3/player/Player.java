@@ -11,6 +11,7 @@ public class Player {
     private boolean hasJailCard;
     private boolean hasPlayerCard;
     private Balance balance = new Balance();
+    private int fieldPosfoer;
 
     public Player() {
         this.name = "Player " + ++playerNumber;
@@ -36,7 +37,7 @@ public class Player {
     public boolean getInJail() {
         return inJail;
     }
-
+    public int getFieldPosfoer() {return fieldPosfoer;}
     public boolean getHasJailCard() {
         return hasJailCard;
     }
@@ -59,6 +60,10 @@ public class Player {
         this.hasPlayerCard = hasPlayerCard;
     }
 
+    public static void setPlayerNumber(int playerNumber) {
+        Player.playerNumber = playerNumber;
+    }
+
     public void setInJail(boolean inJail) {
         this.inJail = inJail;
     }
@@ -68,7 +73,17 @@ public class Player {
     }
 
     public void setFieldPos(int fieldPos) {
-        this.fieldPos = fieldPos;
+        if (fieldPos < 0) {
+            this.fieldPos = getFieldPos();
+        } else if (fieldPos > 24) {
+            while (fieldPos > 24) {
+                fieldPos -= 24;
+            }
+            this.fieldPos = fieldPos;
+        } else {
+            this.fieldPos = fieldPos;
+        }
+        this.fieldPosfoer=this.fieldPos;
     }
 
     //for balance

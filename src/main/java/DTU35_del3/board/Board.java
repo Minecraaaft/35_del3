@@ -1,7 +1,5 @@
 package DTU35_del3.board;
 
-import java.util.Arrays;
-
 import static DTU35_del3.Message.getMessage;
 
 public class Board {

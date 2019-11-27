@@ -4,7 +4,6 @@ import DTU35_del3.Message;
 import DTU35_del3.board.Board;
 import DTU35_del3.diceCup.DiceCup;
 import DTU35_del3.player.Player;
-import com.sun.xml.internal.bind.v2.TODO;
 
 import java.util.Random;
 

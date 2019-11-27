@@ -487,7 +487,7 @@ public class GameLogic {
                     field = guiController.requestOption(getMessage("chancekort",29),"LEGETØJSBUTIKKEN","DYREHANDLEN");
                     if (field.equals("LEGETØJSBUTIKKEN")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 16);
-                        player.setFieldPos(5);
+                        player.setFieldPos(16);
                         landOn(player);
                     } else if (field.equals("DYREHANDLEN")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 17);

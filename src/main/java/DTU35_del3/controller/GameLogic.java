@@ -271,7 +271,7 @@ public class GameLogic {
                 break;
             //Spist for meget slik
             case 6:
-                guiController.showGUIMessage(getMessage("chancekort",11));
+                guiController.displayChanceCard(getMessage("chancekort",11));
                 guiController.updateBalance(player.getName(),player.getBalance()-2);
                 player.setBalance(player.getBalance() -2 );
 
@@ -332,12 +332,12 @@ public class GameLogic {
                 break;
             //Du løslades uden omkostninger
             case 9:
-                guiController.showGUIMessage(getMessage("chancekort",14));
+                guiController.displayChanceCard(getMessage("chancekort",14));
                 player.setHasJailCard(true);
                 break;
             //Ryk frem til strandpromenaden
             case 10:
-                guiController.showGUIMessage(getMessage("chancekort",15));
+                guiController.displayChanceCard(getMessage("chancekort",15));
                 guiController.movePlayer(player.getName(), player.getBalance(),player.getFieldPos(),23);
                 player.setFieldPos(23);
                 landOn(player);
@@ -361,7 +361,7 @@ public class GameLogic {
                 break;
             //Fødselsdags kort
             case 13:
-                guiController.showGUIMessage(getMessage("chancekort",22));
+                guiController.displayChanceCard(getMessage("chancekort",22));
                 for (int i = 0; i < playerList.length ; i++) {
                     guiController.updateBalance(playerList[i].getName(), playerList[i].getBalance() -1);
                     playerList[i].setBalance(playerList[i].getBalance() -1);
@@ -406,7 +406,7 @@ public class GameLogic {
                 break;
             //Lavet alle dine lektier
             case 15:
-                guiController.showGUIMessage(getMessage("chancekort",24));
+                guiController.displayChanceCard(getMessage("chancekort",24));
                 guiController.updateBalance(player.getName(),player.getBalance()+2);
                 player.setBalance(player.getBalance() +2 );
 
@@ -434,7 +434,7 @@ public class GameLogic {
                 if (player.getFieldPos() > 10){
                     player.addToBalance(2);
                 }
-                guiController.showGUIMessage(getMessage("chancekort",26));
+                guiController.displayChanceCard(getMessage("chancekort",26));
                 guiController.movePlayer(player.getName(), player.getBalance(),player.getFieldPos(),10);
                 player.setFieldPos(10);
                 landOn(player);

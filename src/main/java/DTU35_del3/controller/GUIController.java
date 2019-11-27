@@ -46,6 +46,16 @@ public class GUIController {
 
     public String[] startMenu() {
         int players = gui.getUserInteger(getMessage("start menu", 1), 2, 4);
+        int fejl=0;
+        while (true) {
+            if (players > 1 && players < 5){
+                break;
+            }
+            else{
+                gui.showMessage(getMessage("fejlbesked", 1));
+                players = gui.getUserInteger(getMessage("start menu", 1), 2, 4);
+            }
+        }
 
         int balance=0;
         if (players == 2) {

@@ -25,7 +25,7 @@ Vandlandet
 Strand
 
 start menu
-Hvor mange spillere?
+Hvor mange spillere? (Mellem 2 og 4)
 Spiller
 , skriv navn:
 
@@ -86,3 +86,6 @@ Lyseblå
 Pink
 Grøn
 Brun
+
+fejlbesked
+Forkert antal spillere

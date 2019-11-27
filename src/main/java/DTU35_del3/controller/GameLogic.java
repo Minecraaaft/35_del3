@@ -83,7 +83,7 @@ public class GameLogic {
         if (player.getInJail()) {
             if (player.getHasJailCard()) {
                 player.setHasJailCard(false);
-                guiController.showGUIMessage(player.getName() + " uses jail card.");
+                guiController.showGUIMessage(player.getName() + " " + getMessage("general", 5));
             } else {
                 player.removeFromBalance(1);
                 guiController.updateBalance(player.getName(), player.getBalance());
@@ -91,7 +91,7 @@ public class GameLogic {
                     player.setHasLost(true);
                     return;
                 }
-                guiController.showGUIMessage(player.getName() + " pays 1M to get out of jail.");
+                guiController.showGUIMessage(player.getName() + " " + getMessage("general", 6));
             }
             player.setInJail(false);
         }
@@ -314,7 +314,7 @@ public class GameLogic {
                 break;
             //Ryk frem til lyseblåt
             case 8:
-                field = guiController.requestOption(getMessage("chancekort",29),"ISKIOSKEN","SLIKBUTIKKEN");
+                field = guiController.requestOption(getMessage("chancekort",29),"ISBUTIKKEN","SLIKBUTIKKEN");
                 if(field.equals("ISKIOSKEN")){
                     if (player.getFieldPos() > 5){
                         player.addToBalance(2);

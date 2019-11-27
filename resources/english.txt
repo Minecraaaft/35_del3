@@ -34,6 +34,8 @@ It is
 's turn
 Roll dice
 has been jailed!
+uses jail card.
+pays 1M to get out of jail.
 
 
 

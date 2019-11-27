@@ -25,7 +25,7 @@ Waterpark
 Beach
 
 start menu
-How many players?
+How many players? (Between 2 and 4)
 Player
 , choose name please:
 
@@ -86,3 +86,6 @@ LightBlue
 Pink
 Green
 Brown
+
+fejlbesked
+Wrong input of players

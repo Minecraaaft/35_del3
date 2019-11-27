@@ -178,12 +178,15 @@ public class GUIController {
 
         }
     }
+
     public int requestInteger(String msg, int min, int max){
         return gui.getUserInteger(msg,min,max);
     }
+
     public String requestOption(String msg0,String msg1, String msg2){
         return gui.getUserSelection(msg0,msg1,msg2);
     }
+
     public String requestField2(String msg0,String[] msg1){
         return gui.getUserSelection(msg0,msg1);
     }

@@ -445,7 +445,7 @@ public class GameLogic {
                     if (player.getFieldPos() > 5){
                         player.addToBalance(2);
                     }
-                    field = guiController.requestOption(getMessage("chancekort",29),"ISKIOSKEN","SLIKBUTIKKEN");
+                    field = guiController.requestOption(getMessage("chancekort",29),"ISBUTTIKEN","SLIKBUTIKKEN");
                     if (field.equals("ISKIOSKEN")) {
                         guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 5);
                         player.setFieldPos(5);

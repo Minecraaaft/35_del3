@@ -202,8 +202,8 @@ public class GameLogic {
                 break;
             //Ryk frem til start. Modtag 2M
             case 1:
-                guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 0);
                 guiController.displayChanceCard(getMessage("chancekort",4));
+                guiController.movePlayer(player.getName(), player.getBalance(), player.getFieldPos(), 0);
                 player.addToBalance(2);
                 guiController.updateBalance(player.getName(), player.getBalance());
                 break;

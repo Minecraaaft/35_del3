@@ -50,7 +50,7 @@ Move a field forward or else draw another chance card.
 Give this card to the car, and take another chance card.
 Car: On your next turn, you have to race to any available field and buy it.
 If there aren't any available fields, then you have to buy one from another player.
-You have eaten to much candy. Pay the bank 2M.
+You have eaten too much candy. Pay the bank 2M.
 Move to an orange or green field. If the field is available, you get it for free. Else you have to pay the rent to the owner.
 Move to the light blue field. If the field is available, you get it for free. Else you have to pay the rent to the owner.
 You are released with no charge. Keep this card until you will need it.
@@ -81,10 +81,10 @@ Draw another chance card.
 
 color
 Orange
-DarkBlue
+Dark blue
 Yellow
 Red
-LightBlue
+Light blue
 Pink
 Green
 Brown

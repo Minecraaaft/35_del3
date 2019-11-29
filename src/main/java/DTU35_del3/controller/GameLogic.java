@@ -210,6 +210,15 @@ public class GameLogic {
             //Ryk op til 5 felter
             case 2:
                 int steps = guiController.requestInteger(getMessage("chancekort",5), 1,5);
+                while(true){
+                    if (steps > 0 && steps < 6){
+                        break;
+                    }
+                    else{
+                        steps = guiController.requestInteger(getMessage("chancekort",5), 1,5);
+                    }
+                }
+
                 int placementAfter = player.getFieldPos() + steps;
                 if (placementAfter > 23) {
                     placementAfter = placementAfter - 24;

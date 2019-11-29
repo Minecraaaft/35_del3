@@ -15,10 +15,10 @@ public class Message {
         String msg = "";
         String file = "";
 
-        if (language.equals("danish")) {
-            file = "resources/danish.txt";
-        } else if (language.equals("english")) {
-            file = "resources/english.txt";
+        if (language.equals("Dansk")) {
+            file = "src\\main\\resources\\danish.txt";
+        } else if (language.equals("English")) {
+            file = "src\\main\\resources\\english.txt";
         }
 
         try {

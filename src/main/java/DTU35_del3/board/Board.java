@@ -26,7 +26,7 @@ public class Board {
 
     public void checkForPairs() {
         for (int i = 0; i < 9; i+=2) {
-            if (Streets[i].getOwned() == Streets[i+1].getOwned() && Streets[i].getOwned() != "") {
+            if (Streets[i].getOwned().equals(Streets[i + 1].getOwned()) && !Streets[i].getOwned().equals("")) {
                 Streets[i].setPaired(true);
                 Streets[i+1].setPaired(true);
             }

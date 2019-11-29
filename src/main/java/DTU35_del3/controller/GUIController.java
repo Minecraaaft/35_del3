@@ -62,7 +62,7 @@ public class GUIController {
             balance = 20;
         } else if (players == 3) {
             balance = 18;
-        } else if (players == 4) {
+        } else {
             balance = 16;
         }
 

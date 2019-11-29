@@ -15,9 +15,9 @@ public class Message {
         String msg = "";
         String file = "";
 
-        if (language == "danish") {
+        if (language.equals("danish")) {
             file = "resources/danish.txt";
-        } else if (language == "english") {
+        } else if (language.equals("english")) {
             file = "resources/english.txt";
         }
 

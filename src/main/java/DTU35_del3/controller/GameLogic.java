@@ -18,7 +18,7 @@ public class GameLogic {
     private int index = 0;
 
     public void start() {
-        String language = guiController.requestOption("Choose language", "danish", "english");
+        String language = guiController.requestOption("Choose language", "Dansk", "English");
         new Message(language);
         board = new Board();
 

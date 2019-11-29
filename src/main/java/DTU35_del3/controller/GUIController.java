@@ -27,7 +27,7 @@ public class GUIController {
             new GUI_Brewery("src/main/resources/Pictures/Bog.jpg", "Biblioteket", "2M", "", "2", Color.PINK, Color.BLACK),
             new GUI_Brewery("src/main/resources/Pictures/Chance.jpg", "Chance", "", "", "", new Color(235, 156, 48), Color.BLACK),
             new GUI_Brewery("src/main/resources/Pictures/Skater.jpg", "Skaterparken", "2M", "", "2", Color.ORANGE, Color.BLACK),
-            new GUI_Brewery("src/main/resources/Pictures/Svømmer.jpg", "Svømmehallen", "2M", "", "2", Color.ORANGE, Color.BLACK),
+            new GUI_Brewery("src/main/resources/Pictures/Svoemmer.jpg", "Svømmehallen", "2M", "", "2", Color.ORANGE, Color.BLACK),
             new GUI_Brewery("src/main/resources/Pictures/Gratis_parkering.jpg", "Gratis ", "parkering", "", "", Color.WHITE, Color.BLACK),
             new GUI_Brewery("src/main/resources/Pictures/Arcade.jpg", "Spillehalle", "3M", "", "3", new Color(235, 80, 59), Color.BLACK),
             new GUI_Brewery("src/main/resources/Pictures/Biograf.jpg", "Biografen", "3M", "", "3", new Color(235, 80, 59), Color.BLACK),
